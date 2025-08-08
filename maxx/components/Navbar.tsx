@@ -62,7 +62,7 @@ export function NavigationMenuDemos() {
             <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] font-bold">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
-                  <a
+                  <Link
                     className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
                     href="/"
                   >
@@ -72,7 +72,7 @@ export function NavigationMenuDemos() {
                     <p className="text-muted-foreground text-sm leading-tight">
                       Primium designed components built with Maxx Thrift's .
                     </p>
-                  </a>
+                  </Link>
                 </NavigationMenuLink>
               </li>
               <ListItem href="/docs" title="Introduction">

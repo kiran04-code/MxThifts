@@ -36,7 +36,8 @@ const FaqSection = () => {
   return (
     <div className="w-full  py-16 md:py-24 px-6 md:px-12">
       <div className="max-w-4xl mx-auto">
-        <p className="text-indigo-600 text-sm font-medium">FAQ's</p>
+        <p className="text-indigo-600 text-sm font-medium">FAQ&apos;s</p>
+
         <h1 className="text-3xl md:text-4xl font-semibold mt-2">Looking for answers?</h1>
         <p className="text-sm text-gray-600 mt-2">
           Ship Beautiful Frontends Without the Overhead — Customizable, Scalable and Developer-Friendly UI Components.
@@ -57,9 +58,8 @@ const FaqSection = () => {
                   viewBox="0 0 18 18"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className={`transition-transform duration-300 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
+                  className={`transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""
+                    }`}
                 >
                   <path
                     d="m4.5 7.2 3.793 3.793a1 1 0 0 0 1.414 0L13.5 7.2"
@@ -72,11 +72,10 @@ const FaqSection = () => {
               </div>
 
               <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index
                     ? "max-h-[300px] opacity-100 pt-3"
                     : "max-h-0 opacity-0"
-                }`}
+                  }`}
               >
                 <p className="text-sm text-gray-600">{faq.answer}</p>
               </div>
