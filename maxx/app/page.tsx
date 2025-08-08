@@ -7,6 +7,7 @@ import HeroSection from "@/components/HeroSection";
 import AnimationSider from "@/components/AnimationSider";
 import FaqSection from "@/components/FaqSection";
 import MobileNavbar from "@/components/MobileNavbar";
+import Footer from "@/components/Footer";
 export default function Home() {
 
   return (
@@ -18,7 +19,7 @@ export default function Home() {
         <div className="md:flex hidden">
           <NavigationMenuDemos />
         </div>
-        <div className="md:hidden flex">
+        <div className="md:hidden flex p-1">
           <MobileNavbar />
         </div>
       </div>
@@ -29,6 +30,7 @@ export default function Home() {
         <AnimationSider/>
       </div>
       <FaqSection/>
+      <Footer/>
     </div>
   );
 }
