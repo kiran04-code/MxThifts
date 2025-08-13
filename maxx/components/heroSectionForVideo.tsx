@@ -18,9 +18,9 @@ const HeroSectionForVideo = () => {
                 </span>
             </div>
 
-            <div className='retaive  justify-end  items-center flex'>
+            <div className='md:retaive  md:justify-end  md:items-center md:flex flex px-3  md:px-1'>
                 <div className='absoulte '>
-                    <video src="kiran01.mp4 " className='rounded-3xl shadow-2xl border-2 ' loop autoPlay muted></video>
+                    <video src="kiran01.mp4 " className='rounded-xl shadow-2xl border-2 ' loop autoPlay muted></video>
                 </div>
 
             </div>
