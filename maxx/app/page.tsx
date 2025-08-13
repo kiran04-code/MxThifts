@@ -9,6 +9,7 @@ import FaqSection from "@/components/FaqSection";
 import MobileNavbar from "@/components/MobileNavbar";
 import Footer from "@/components/Footer";
 import HeroSectionForVideo from "@/components/heroSectionForVideo";
+import ImageSections from "@/components/image";
 export default function Home() {
 
   return (
@@ -28,10 +29,16 @@ export default function Home() {
       <div>
         <HeroSectionForVideo/>
       </div>
-      <div className="mt-20">
+      <div className="mt-20 md:flex md:justify-start md:px-20 px-2">
         <AnimationSider/>
       </div>
-      <FaqSection/>
+ 
+      <div className="md:flex mt-10 md:justify-start md:px-20">
+        <FaqSection/>
+      </div>
+       <div className="py-20">
+    <ImageSections/>
+  </div>
       <Footer/>
     </div>
   );

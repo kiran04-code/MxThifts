@@ -79,9 +79,10 @@ const AnimationSider = () => {
             `}</style>
 
 
-            <div className="overflow-hidden w-full relative max-w-6xl mx-auto" onMouseEnter={() => setStopScroll(true)} onMouseLeave={() => setStopScroll(false)}>
+           <div className='b'>
+             <div className="overflow-hidden px-2 justify-start   items-center w-full relative max-w-6xl mx-auto border-2 rounded-[20px] border-black md:p-2" onMouseEnter={() => setStopScroll(true)} onMouseLeave={() => setStopScroll(false)}>
 
-                <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent" />
+                <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent ]" />
 
                 <div className="marquee-inner flex w-fit" style={{ animationPlayState: stopScroll ? "paused" : "running", animationDuration: cardData.length * 2500 + "ms" }}>
 
@@ -89,7 +90,7 @@ const AnimationSider = () => {
 
                         {[...cardData, ...cardData].map((card, index) => (
 
-                            <div key={index} className="w-56 mx-4 h-[20rem] relative group hover:scale-90 transition-all duration-300">
+                            <div key={index} className="w-56 mx-4 h-[13rem] p-2 relative group hover:scale-90 transition-all duration-300">
 
                                 <Image width={500}
                                     height={300} src={card.image} alt="card" className="w-full h-full object-cover" />
@@ -111,6 +112,7 @@ const AnimationSider = () => {
                 <div className="absolute right-0 top-0 h-full w-20 md:w-40 z-10 pointer-events-none bg-gradient-to-l from-white to-transparent" />
 
             </div>
+           </div>
 
         </>
 

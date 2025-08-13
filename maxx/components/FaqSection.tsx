@@ -34,7 +34,7 @@ const FaqSection = () => {
   ];
 
   return (
-    <div className="w-full  py-16 md:py-24 px-6 md:px-12">
+    <div className=" md:py-10 px-5">
       <div className="max-w-4xl mx-auto">
         <p className="text-indigo-600 text-sm font-medium">FAQ&apos;s</p>
 
