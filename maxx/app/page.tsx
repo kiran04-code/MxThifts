@@ -10,6 +10,7 @@ import MobileNavbar from "@/components/MobileNavbar";
 import Footer from "@/components/Footer";
 import HeroSectionForVideo from "@/components/heroSectionForVideo";
 import ImageSections from "@/components/image";
+import Footer2 from "@/components/Footer2";
 export default function Home() {
 
   return (
@@ -39,7 +40,9 @@ export default function Home() {
        <div className="py-20">
     <ImageSections/>
   </div>
-      <Footer/>
+     
+      <Footer2/>
+       <Footer/>
     </div>
   );
 }

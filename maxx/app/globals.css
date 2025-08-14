@@ -125,3 +125,12 @@ body {
   }
 }
 
+
+.box-shadow {
+  box-shadow: 
+    5px 5px rgba(99, 99, 102, 0.4),
+    10px 10px rgba(73, 74, 75, 0.3),
+    15px 15px rgba(132, 136, 136, 0.2),
+    20px 20px rgba(3, 3, 3, 0.1),
+    25px 25px rgba(0, 0, 0, 0.05);
+}

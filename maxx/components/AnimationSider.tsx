@@ -80,7 +80,7 @@ const AnimationSider = () => {
 
 
            <div className='b'>
-             <div className="overflow-hidden px-2 justify-start   items-center w-full relative max-w-6xl mx-auto border-2 rounded-[20px] border-black md:p-2" onMouseEnter={() => setStopScroll(true)} onMouseLeave={() => setStopScroll(false)}>
+             <div className=" box-shadow overflow-hidden px-2 justify-start   items-center w-full relative max-w-6xl mx-auto border-2 rounded-[20px] border-black md:p-2" onMouseEnter={() => setStopScroll(true)} onMouseLeave={() => setStopScroll(false)}>
 
                 <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent ]" />
 
