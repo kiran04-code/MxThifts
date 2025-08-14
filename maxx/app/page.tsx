@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import HeroSectionForVideo from "@/components/heroSectionForVideo";
 import ImageSections from "@/components/image";
 import Footer2 from "@/components/Footer2";
+import Cloth from "@/components/bradingComponents/Cloth";
 export default function Home() {
 
   return (
@@ -20,7 +21,7 @@ export default function Home() {
           <Nvbar2 />
         </div>
         <div className="md:flex hidden">
-          
+
           <NavigationMenuDemos />
         </div>
         <div className="md:hidden flex p-1">
@@ -28,21 +29,22 @@ export default function Home() {
         </div>
       </div>
       <div>
-        <HeroSectionForVideo/>
+        <HeroSectionForVideo />
       </div>
       <div className="mt-20 md:flex md:justify-start md:px-20 px-2">
-        <AnimationSider/>
+        <AnimationSider />
       </div>
- 
-      <div className="md:flex mt-10 md:justify-start md:px-20">
-        <FaqSection/>
+
+      <div className="md:flex mt-10 md:justify-start md:px-20 gap-5">
+        <FaqSection />
+        <Cloth/>
       </div>
-       <div className="py-20">
-    <ImageSections/>
-  </div>
-     
-      <Footer2/>
-       <Footer/>
+      <div className="py-20">
+        <ImageSections />
+      </div>
+
+      <Footer2 />
+      <Footer />
     </div>
   );
 }

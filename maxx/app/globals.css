@@ -134,3 +134,7 @@ body {
     20px 20px rgba(3, 3, 3, 0.1),
     25px 25px rgba(0, 0, 0, 0.05);
 }
+.box-shadow2 {
+    box-shadow:
+     10px 10px 0px 5px rgb(0, 0, 0);
+}
