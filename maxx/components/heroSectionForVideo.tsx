@@ -38,7 +38,7 @@ const HeroSectionForVideo = () => {
                             ></video>
                         </div>
                     </div>
-                    <div className='md:flex flex justify-center items-center sm:flex sm:justify-center '>
+                    <div className='md:flex  md:items-start flex justify-center items-center sm:flex sm:justify-center '>
                         <video
                             src="v1.mp4"
                             className="rounded-xl shadow-2xl border-2  border-black w-62 h-96 object-cover"

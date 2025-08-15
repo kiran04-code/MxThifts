@@ -55,9 +55,9 @@ const components: { title: string; href: string; description: string }[] = [
 export function NavigationMenuDemos() {
   return (
     <NavigationMenu viewport={false}>
-      <NavigationMenuList className="flex gap-10 p-4 rounded-xl bg-white shadow-lg" >
+      <NavigationMenuList className="flex gap-10 p-4 rounded-[10px] bg-black shadow-lg" >
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-[#0A1033]">Home</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="text-[#ffffff]">Home</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] font-bold">
               <li className="row-span-3">
@@ -89,7 +89,7 @@ export function NavigationMenuDemos() {
         </NavigationMenuItem>
        
         <NavigationMenuItem>
-          <NavigationMenuTrigger>List</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="text-white">List</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[300px] gap-5">
               <li>
@@ -107,7 +107,7 @@ export function NavigationMenuDemos() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger> <CiShoppingCart className="text-2xl font-bold"/>  </NavigationMenuTrigger>
+          <NavigationMenuTrigger className="text-white"> <CiShoppingCart className="text-2xl font-bold text-white"/>  </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[300px] gap-4">
               <li>
