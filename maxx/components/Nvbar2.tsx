@@ -6,7 +6,7 @@ const Nvbar2 = () => {
       <Image
         width={500}
         height={300}
-        src="/IMG_4331.png"
+        src="/IMG_4331.PNG"
         alt="Logo"
         className="w-10 h-10 object-contain"
       />
