@@ -20,46 +20,51 @@ const HeroSectionForVideo = () => {
 
             <div className='md:retaive  md:justify-end  md:items-center md:flex flex-col flex  px-3  md:px-1'>
                 <div className="flex flex-col md:flex-row gap-3">
+                    <div className='md:flex md:flex-col flex  gap-1 justify-center items-center '>
+                        <video
+                            src="v2.mp4"
+                            className="rounded-xl shadow-2xl border-1 border-black md:w-32 w-35 h-56 object-cover"
+                            loop
+                            autoPlay
+                            muted
+                        ></video>
+                        <div >
+                            <video
+                                src="v2.mp4"
+                                className="rounded-xl shadow-2xl border-1 border-black md:w-32 w-35 h-56 object-cover"
+                                loop
+                                autoPlay
+                                muted
+                            ></video>
+                        </div>
+                    </div>
+                    <div className='md:flex flex justify-center items-center sm:flex sm:justify-center '>
+                        <video
+                            src="v1.mp4"
+                            className="rounded-xl shadow-2xl border-2  border-black w-62 h-96 object-cover"
+                            loop
+                            autoPlay
+                            muted
+                        ></video>
+                    </div>
+
                     <div className='md:flex md:flex-col flex px-2  gap-1 justify-center items-center '>
-     <video
-      src="v2.mp4"
-      className="rounded-xl shadow-2xl border-1 border-black md:w-32 w-28 h-56 object-cover"
-      loop
-      autoPlay
-      muted
-    ></video>
-    <video
-      src="v2.mp4"
-      className="rounded-xl shadow-2xl border-1   border-black md:w-32 w-28 h-56 object-cover"
-      loop
-      autoPlay
-      muted
-    ></video>
-   </div>
-    <video
-      src="v1.mp4"
-      className="rounded-xl shadow-2xl border-2  border-black w-62 h-96 object-cover"
-      loop
-      autoPlay
-      muted
-    ></video>
-   <div className='md:flex md:flex-col flex px-2  gap-1 justify-center items-center '>
-     <video
-      src="v2.mp4"
-      className="rounded-xl shadow-2xl border-1 border-black md:w-32 w-28 h-56 object-cover"
-      loop
-      autoPlay
-      muted
-    ></video>
-    <video
-      src="v2.mp4"
-      className="rounded-xl shadow-2xl border-1   border-black md:w-32 w-28 h-56 object-cover"
-      loop
-      autoPlay
-      muted
-    ></video>
-   </div>
-  </div>
+                        <video
+                            src="v2.mp4"
+                            className="rounded-xl shadow-2xl border-1 border-black md:w-32 w-35 h-56 object-cover"
+                            loop
+                            autoPlay
+                            muted
+                        ></video>
+                        <video
+                            src="v2.mp4"
+                            className="rounded-xl shadow-2xl border-1 border-black md:w-32 w-35 h-56 object-cover"
+                            loop
+                            autoPlay
+                            muted
+                        ></video>
+                    </div>
+                </div>
             </div>
         </div>
 

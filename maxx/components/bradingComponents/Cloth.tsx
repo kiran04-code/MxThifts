@@ -9,7 +9,7 @@ const Cloth = () => {
   src="/img8.jpg"
   width={400}
   height={400}
-  className="w-full max-w-[200px] md:max-w-[400px] h-auto object-cover rounded-lg"
+  className="w-full max-w-[4 00px] md:max-w-[400px]  h-auto object-cover rounded-lg"
 />
 
      </div>

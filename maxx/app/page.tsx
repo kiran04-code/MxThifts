@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div className="flex-col  ">
      
-      <div className="flex md:ap-5 p-2 justify-between md:px-50 md:py-8 ">
+      <div className="flex  p-2 justify-between md:px-50 md:py-8 ">
         <div>
           
           <Nvbar2 />
