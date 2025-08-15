@@ -13,9 +13,9 @@ const AnimationSider = () => {
 
         {
 
-            title: "Unlock Your Creative Flow",
+            title: "Unlock Your Shirt Jounery",
 
-            image: "https://images.unsplash.com/photo-1543487945-139a97f387d5?w=1200&auto=format&fit=crop&q=60",
+            image: "/max01.jpg",
 
         },
 
@@ -23,7 +23,7 @@ const AnimationSider = () => {
 
             title: "Design Your Digital Future",
 
-            image: "https://images.unsplash.com/photo-1529254479751-faeedc59e78f?w=1200&auto=format&fit=crop&q=60",
+            image: "/im3.jpg",
 
         },
 
@@ -31,7 +31,7 @@ const AnimationSider = () => {
 
             title: "Build with Passion, Ship with Pride",
 
-            image: "https://images.unsplash.com/photo-1618327907215-4e514efabd41?w=1200&auto=format&fit=crop&q=60",
+            image: "/im1.jpeg",
 
         },
 
@@ -39,7 +39,7 @@ const AnimationSider = () => {
 
             title: "Think Big, Code Smart",
 
-            image: "https://images.unsplash.com/photo-1583407723467-9b2d22504831?w=1200&auto=format&fit=crop&q=60",
+            image: "/im4.jpg",
 
         },
 
@@ -79,7 +79,7 @@ const AnimationSider = () => {
             `}</style>
 
 
-           <div className='b'>
+           <div className='md:flex  p-2 sm:w-[80%]'>
              <div className=" box-shadow overflow-hidden px-2 justify-start   items-center w-full relative max-w-6xl mx-auto border-2 rounded-[20px] border-black md:p-2" onMouseEnter={() => setStopScroll(true)} onMouseLeave={() => setStopScroll(false)}>
 
                 <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent ]" />
@@ -93,7 +93,7 @@ const AnimationSider = () => {
                             <div key={index} className="w-56 mx-4 h-[13rem] p-2 relative group hover:scale-90 transition-all duration-300">
 
                                 <Image width={500}
-                                    height={300} src={card.image} alt="card" className="w-full h-full object-cover" />
+                                    height={300} src={card.image} alt="card" className="w-full h-full rounded-xl object-cover" />
 
                                 <div className="flex items-center justify-center px-4 opacity-0 group-hover:opacity-100 transition-all duration-300 absolute bottom-0 backdrop-blur-md left-0 w-full h-full bg-black/20">
 

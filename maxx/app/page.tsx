@@ -12,12 +12,15 @@ import HeroSectionForVideo from "@/components/heroSectionForVideo";
 import ImageSections from "@/components/image";
 import Footer2 from "@/components/Footer2";
 import Cloth from "@/components/bradingComponents/Cloth";
+import MarQuee from "@/components/MarQuee";
 export default function Home() {
 
   return (
     <div className="flex-col  ">
+     
       <div className="flex md:ap-5 p-2 justify-between md:px-50 md:py-8 ">
         <div>
+          
           <Nvbar2 />
         </div>
         <div className="md:flex hidden">
