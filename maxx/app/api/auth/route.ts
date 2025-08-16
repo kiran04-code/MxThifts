@@ -1,10 +1,10 @@
 import { cookies } from "next/headers";
 import User from "@/model/user";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { DBonnection } from "@/config/mongodb";
 
 
-export const GET = async () => {
+export const GET = async (req:NextRequest) => {
   try {
     const cookieStore = await cookies();
    await  DBonnection()
@@ -17,6 +17,9 @@ export const GET = async () => {
     message:"ok"
   })
   } catch (error) {
-    console.log(error)
+    return NextResponse.json(
+      { success: false, datas: null, message: "Server error" },
+      { status: 500 }
+    );
   }
 };
