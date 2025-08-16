@@ -14,18 +14,16 @@ import Footer2 from "@/components/Footer2";
 import Cloth from "@/components/bradingComponents/Cloth";
 import MarQuee from "@/components/MarQuee";
 import Sell from "@/components/sellSection/sell";
+import {Toaster} from "react-hot-toast"
 export default function Home() {
-
   return (
-    
     <div className="flex-col  ">
-    
+      
       <div className="md:flex md:justify-between flex justify-between md:px-20 md:py-5 px-5 py-2 ">
         <div>
           <Nvbar2 />
         </div>
         <div className="md:flex hidden">
-
           <NavigationMenuDemos />
         </div>
         <div className="md:hidden flex p-1">
@@ -38,7 +36,6 @@ export default function Home() {
       <div className="mt-20 md:flex md:justify-start md:px-20 px-2">
         <AnimationSider />
       </div>
-       
       <div className="md:flex mt-10 md:justify-start md:px-20 gap-5">
         <Sell/>
         <FaqSection />
@@ -47,7 +44,6 @@ export default function Home() {
       <div className="py-20">
         <ImageSections />
       </div>
-
       <Footer2 />
       <Footer />
     </div>

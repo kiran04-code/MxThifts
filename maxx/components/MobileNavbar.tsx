@@ -4,6 +4,7 @@ import { FaBars } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useAuth } from "@/context/UserAuth";
 
 const sidebarVariants = {
   hidden: { x: "-100%" },
@@ -13,7 +14,7 @@ const sidebarVariants = {
 
 const MobileNavbar = () => {
   const [open, setOpen] = useState(false);
-
+  const  {user} = useAuth()!
   return (
     <div className="md:hidden z-50">
       <div
@@ -49,8 +50,16 @@ const MobileNavbar = () => {
             {/* Nav Links */}
             <nav className="mt-10 flex flex-col gap-6 text-lg font-medium">
               <Link href="/" onClick={() => setOpen(false)}>Home</Link>
+             {
+              user? null : <Link href="/login" onClick={() => setOpen(false)}>Login</Link>
+             }
               <Link href="/blog" onClick={() => setOpen(false)}>Blog</Link>
-              <Link href="/cart" onClick={() => setOpen(false)}>Cart</Link>
+             {
+              user ? <Link href="/cart" onClick={() => setOpen(false)}>Cart</Link>:null
+             }
+             {
+              user ? <Link href="/Profile" onClick={() => setOpen(false)}>Profile</Link>:null
+             }
               <Link href="/about" onClick={() => setOpen(false)}>About</Link>
             </nav>
           </motion.div>

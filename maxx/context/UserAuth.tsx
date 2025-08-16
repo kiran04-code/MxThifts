@@ -1,0 +1,42 @@
+"use client";
+import axios from "axios";
+import { createContext, ReactNode, use, useContext, useEffect, useState } from "react";
+
+export interface CurrentUser {
+  name: string;
+  email: string;
+  number: number;
+}
+
+interface AuthContextType {
+  user: CurrentUser | null;
+  setUser: React.Dispatch<React.SetStateAction<CurrentUser | null>>;
+}
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
+  const [user, setUser] = useState<CurrentUser | null>(null);
+  const auth = async()=>{
+    try {
+        const {data} = await axios.get("/api/auth")
+        if(data.success){
+            setUser(data.datas)
+        }
+    } catch (error) {
+        console.log(error)
+    }
+  }
+  useEffect(()=>{
+ auth()
+  },[])
+  return (
+    <AuthContext.Provider value={{ user, setUser }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export const useAuth = () => {
+   return useContext(AuthContext);
+};

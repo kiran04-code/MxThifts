@@ -13,6 +13,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { useAuth } from "@/context/UserAuth";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -53,11 +54,15 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 export function NavigationMenuDemos() {
+  const { user, setUser } = useAuth()!;
   return (
     <NavigationMenu viewport={false}>
       <NavigationMenuList className="flex gap-10 p-4 rounded-[10px] bg-black shadow-lg" >
         <NavigationMenuItem>
           <NavigationMenuTrigger className="text-[#ffffff]">Home</NavigationMenuTrigger>
+          {
+            user ? null:<Link href={"/Register"} className="text-[#ffffff] ml-2 hover:bg-white hover:text-black p-2 rounded-[10px]  transition">Login</Link>
+          }
           <NavigationMenuContent>
             <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] font-bold">
               <li className="row-span-3">
@@ -90,6 +95,9 @@ export function NavigationMenuDemos() {
        
         <NavigationMenuItem>
           <NavigationMenuTrigger className="text-white">List</NavigationMenuTrigger>
+         {
+          user?  <Link href={"/Profile"} className="text-[#ffffff] ml-2 hover:bg-white hover:text-black p-2 rounded-[10px]  transition">Profile</Link>:null
+         }
           <NavigationMenuContent>
             <ul className="grid w-[300px] gap-5">
               <li>

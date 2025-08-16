@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 // In your layout.tsx or layout.js
 import { IBM_Plex_Sans } from "next/font/google";
+import { AuthContextProvider } from "@/context/UserAuth";
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -35,7 +36,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${ibmPlexSans.className }antialiased`}
       >
-        {children}
+      <AuthContextProvider>
+          {children}
+      </AuthContextProvider>
       </body>
     </html>
   );
