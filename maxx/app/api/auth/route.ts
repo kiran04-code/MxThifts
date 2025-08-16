@@ -9,7 +9,7 @@ export const GET = async (req:NextRequest) => {
     const cookieStore = await cookies();
    await  DBonnection()
   const tokenCookie = cookieStore.get("name")?.value;
-  if (!tokenCookie) return null;
+  if (!tokenCookie) return 
   const user = await User.findById(tokenCookie);
   return NextResponse.json({
     success:true,
