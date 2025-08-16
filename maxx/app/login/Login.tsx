@@ -1,4 +1,5 @@
 "use client"
+import SmallLoder from '@/components/loaders/SmallLoder';
 import { useAuth } from '@/context/UserAuth';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -9,6 +10,7 @@ import { VscAccount } from "react-icons/vsc";
 
 const Login = () => {
   const {user,setUser} = useAuth()!
+  const [loader,setLoder] = useState(false)
    const [from,setfrom] = useState({
      email: "",
     password: ""
@@ -21,8 +23,11 @@ const Login = () => {
    const hnadleSubmit = async(e:React.FormEvent<HTMLFormElement>)=>{
   try {
   e.preventDefault()
+  setLoder(true)
     if ( !from.password || !from.email) {
+        setLoder(false)
       return toast.error("Fill the Before Submit the")
+      
     }
     const {data} = await axios.post("/api/login",from)
     console.log(data)
@@ -30,14 +35,17 @@ const Login = () => {
       toast.success(data.message)
       setUser(data.datas)
       routes.push("/")
+      setLoder(false)
       
     }
     else{
        toast.error(data.message)
       setfrom({email:"",password:""})
+      setLoder(false)
     }
   } catch (error) {
     console.log(error)
+    setLoder(true)
   }
    }
   return (
@@ -79,7 +87,9 @@ const Login = () => {
             className="bg-gray-200 focus:bg-gray-300 focus:outline-none p-3 rounded-lg"
           />
           <button className="text-white bg-black p-4 rounded-4xl font-medium hover:bg-gray-800 transition">
-            Submit
+           {
+            loader?<SmallLoder/>:"Submit"
+           }
           </button>
         </form>
 
