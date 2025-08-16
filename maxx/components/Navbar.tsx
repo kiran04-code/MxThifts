@@ -54,7 +54,7 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 export function NavigationMenuDemos() {
-  const { user, setUser } = useAuth()!;
+  const { user } = useAuth()!;
   return (
     <NavigationMenu viewport={false}>
       <NavigationMenuList className="flex gap-10 p-4 rounded-[10px] bg-black shadow-lg" >

@@ -1,14 +1,12 @@
-"use client"
-import { useAuth } from '@/context/UserAuth'
+
+
 import React from 'react'
+import DataProfile from './DataProfile'
 
 const page = () => {
-    const {user} = useAuth()!
   return (
     <div className=''>
-      <p>{user?.email}</p>
-      <p>{user?.name}</p>
-      <p>{user?.number}</p>
+      <DataProfile/>
     </div>
   )
 }
