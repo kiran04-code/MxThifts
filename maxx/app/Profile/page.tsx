@@ -1,6 +1,6 @@
 
 import React from 'react'
-import DataProfile from './dataProfile'
+import DataProfile from './DataProfile'
 
 const page = () => {
   return (
