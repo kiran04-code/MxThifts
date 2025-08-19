@@ -18,10 +18,10 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<CurrentUser | null>(null);
-   console.log(user)
+
   const auth = async()=>{
     try {
-        const {data} = await axios.get("/api/auth")
+        const {data} = await axios.get("/api/auth2")
         if(data.success){
             setUser(data.datas)
         }

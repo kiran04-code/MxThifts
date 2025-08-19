@@ -9,9 +9,10 @@ const GoogleAuth = () => {
     const [loading,setLoading] = useState(false)
     const {user,setUser} = useAuth()!
     const {data:session,status} = useSession()
+    console.log(status)
      const handleGoogleSignIn = async () => {
         setLoading(true)
-        if(status  === "authenticated" || user){
+        if(status  === "authenticated" && user){
         redirect("/Profile")
     }
     try {
