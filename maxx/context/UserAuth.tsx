@@ -5,7 +5,8 @@ import { createContext, ReactNode, use, useContext, useEffect, useState } from "
 export interface CurrentUser {
   name: string;
   email: string;
-  number: number;
+  number?: number;
+  image?:string
 }
 
 interface AuthContextType {
@@ -17,6 +18,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<CurrentUser | null>(null);
+   console.log(user)
   const auth = async()=>{
     try {
         const {data} = await axios.get("/api/auth")
@@ -29,6 +31,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   }
   useEffect(()=>{
  auth()
+
   },[])
   return (
     <AuthContext.Provider value={{ user, setUser }}>

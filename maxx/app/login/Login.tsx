@@ -5,8 +5,9 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast';
-import { FaGoogle } from "react-icons/fa";
+
 import { VscAccount } from "react-icons/vsc";
+import GoogleAuth from './components/GoogleAuth';
 
 const Login = () => {
   const {user,setUser} = useAuth()!
@@ -26,7 +27,7 @@ const Login = () => {
   setLoder(true)
     if ( !from.password || !from.email) {
         setLoder(false)
-      return toast.error("Fill the Before Submit the")
+      return toast.error("Fill the  from  Before Submit it")
       
     }
     const {data} = await axios.post("/api/login",from)
@@ -59,7 +60,7 @@ const Login = () => {
           },
         }}
       />
-      <div className="w-full max-w-md  rounded-2xl p-6 md:p-8">
+      <div className="w-full max-w-md  rounded-2xl p-4 md:p-8">
 
         <div className="flex gap-2 items-center mb-6">
           <img src="black_logo.png" alt="logo" className="w-12 h-12" />
@@ -99,9 +100,7 @@ const Login = () => {
           <div className="flex-grow h-0.5 bg-gray-400"></div>
         </div>
         <div className="flex flex-col gap-4">
-          <button className="bg-black p-4 rounded-4xl cursor-pointer flex justify-center items-center gap-2 text-white hover:bg-gray-800 transition">
-            <FaGoogle /> Sign In With Google
-          </button>
+         <GoogleAuth/>
           <button
                onClick={() => routes.push("/Register")}
             className="bg-black p-4 rounded-4xl cursor-pointer flex justify-center items-center gap-2 text-white hover:bg-gray-800 transition"

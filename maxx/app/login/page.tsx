@@ -1,9 +1,12 @@
 import React from 'react';
 import Login from './Login';
+import { SessionProvider } from 'next-auth/react';
 
 const page = () => {
   return(
-    <Login/>
+    <SessionProvider>
+      <Login/>
+    </SessionProvider>
   )
 }
 

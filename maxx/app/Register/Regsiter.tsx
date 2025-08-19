@@ -6,6 +6,7 @@ import { VscAccount } from "react-icons/vsc";
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/UserAuth';
 import axios from 'axios';
+import GoogleAuth from '../login/components/GoogleAuth';
 
 const Regsiter = () => {
  
@@ -27,7 +28,7 @@ const Regsiter = () => {
     e.preventDefault()
     try {
       if (!from.number || !from.password || !from.email) {
-      return toast.error("Fill the Before Submit the")
+      return toast.error("Fill the  from  Before Submit it")
     } else {
       const { data } = await axios.post("/api/register",from)
       console.log(data)
@@ -56,7 +57,7 @@ const Regsiter = () => {
           },
         }}
       />
-      <div className="w-full max-w-md  rounded-2xl p-6 md:p-8">
+      <div className="w-full max-w-md  rounded-2xl p-4 md:p-8">
 
         <div className="flex gap-2 items-center mb-6">
           <img src="black_logo.png" alt="logo" className="w-12 h-12" />
@@ -109,15 +110,14 @@ const Regsiter = () => {
 
         {/* Social Login */}
         <div className="flex flex-col gap-4">
-          <button className="bg-black p-4 rounded-4xl cursor-pointer flex justify-center items-center gap-2 text-white hover:bg-gray-800 transition">
-            <FaGoogle /> Sign In With Google
-          </button>
+            <GoogleAuth/>
           <button
             onClick={() => routes.push("/login")}
             className="bg-black p-4 rounded-4xl cursor-pointer flex justify-center items-center gap-2 text-white hover:bg-gray-800 transition"
           >
             <VscAccount /> Already Have an Account
           </button>
+             
         </div>
       </div>
     </div>

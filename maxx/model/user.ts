@@ -22,7 +22,6 @@ const UserSchema = new mongoose.Schema<IUser>({
  },
  number:{
     type:Number,
-    required:true
  },
 })
 

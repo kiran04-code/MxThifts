@@ -1,15 +1,13 @@
-
 import React from 'react'
-import DataProfile from './DataProfile'
+import Loading from './Loading'
 import { SessionProvider } from 'next-auth/react'
 
 const page = () => {
   return (
-    <div className=''>
+    <div>
       <SessionProvider>
-          <DataProfile/>
+        <Loading/>
       </SessionProvider>
-  
     </div>
   )
 }

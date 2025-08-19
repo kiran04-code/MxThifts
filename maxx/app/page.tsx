@@ -15,6 +15,7 @@ import Cloth from "@/components/bradingComponents/Cloth";
 import MarQuee from "@/components/MarQuee";
 import Sell from "@/components/sellSection/sell";
 import {Toaster} from "react-hot-toast"
+import GoogleAuth from "./login/components/GoogleAuth";
 export default function Home() {
   return (
     <div className="flex-col  ">
@@ -45,7 +46,9 @@ export default function Home() {
         <ImageSections />
       </div>
       <Footer2 />
+   
       <Footer />
+    
     </div>
   );
 }
