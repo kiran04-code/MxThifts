@@ -52,7 +52,7 @@ const Page = ({ params }: Props) => {
 
 
 
-    const dummsyMal = clothesDummy.find((data) => data.id.toString() === id.toString())
+    const dummsyMal = clothesDummy.find((data) => data.id.toString() === id)
     const [thumbnail, setThumbnail] = React.useState(dummsyMal?.images[0].image);
     const [cart, setCart] = useState(1)
     const AddTOCart = () => {
