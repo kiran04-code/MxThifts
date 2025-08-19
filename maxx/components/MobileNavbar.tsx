@@ -5,6 +5,7 @@ import { RxCross1 } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useAuth } from "@/context/UserAuth";
+import Image from "next/image";
 
 const sidebarVariants = {
   hidden: { x: "-100%" },
@@ -38,7 +39,7 @@ const MobileNavbar = () => {
             {/* Close Icon */}
             <div className="flex justify-between">
             <div className="flex gap-2 justify-center items-center">
-               <img src={"/black_logo.png"} className="w-8 h-8 "/>
+               <Image height={25}  width={25} src="/black_logo.png" alt="" className="w-8 h-8 "/>
                <p className="text-xl font-bold"> Maxx Thrift's</p>
             </div>
               <RxCross1

@@ -1,6 +1,6 @@
 export const clothesDummy = [
   {
-    id: 1,
+    id: "1",
     name: "Classic White T-Shirt",
     category: "Men – Casual Wear",
      price: `${749}/-including shipping `,
@@ -17,7 +17,7 @@ export const clothesDummy = [
     ]
   },
   {
-    id: 2,
+    id: "2",
     name: "Blue Denim Jeans",
     category: "Men – Bottom Wear",
     price: `${890}/-including shipping `,
@@ -34,7 +34,7 @@ export const clothesDummy = [
     ]
   },
   {
-    id: 3,
+    id: "3",
     name: "Allen solly collor T-shirt ",
     category: "Women – Dresses",
     price:`${599+100} shipping` ,
@@ -50,7 +50,7 @@ export const clothesDummy = [
     ]
   },
   {
-    id: 4,
+    id: "4",
     name: "Tommy Hilfiger pink stripes half sleeve shirt ",
     category: "Women – Dresses",
     price: `${949}/-including shipping `,

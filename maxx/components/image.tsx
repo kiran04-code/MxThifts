@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const ImageSections = () => {
@@ -9,7 +10,7 @@ const ImageSections = () => {
 
             <div className="flex items-center justify-center h-20 w-44 md:h-24 md:w-60 hover:bg-slate-50 border border-slate-200 border-t-0 border-x-0 md:border-r">
 
-                <img src="/arrow-shirt-company-logo.png" alt="" />
+                <Image width={250} height={400} src="/arrow-shirt-company-logo.png" alt="" />
             </div>
 
             <div className="flex items-center justify-center h-20 w-44 md:h-24 md:w-60 hover:bg-slate-50 border border-slate-200 border-t-0 border-r-0 md:border-r md:border-l-0">

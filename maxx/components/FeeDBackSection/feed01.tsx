@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react'
 
 const Feed01 = () => {
@@ -255,7 +256,7 @@ const Feed01 = () => {
 
                                 <div className="flex gap-2">
 
-                                    <img className="size-11 rounded-full" src={card.image} alt="User Image" />
+                                    <Image width={250} height={250} className="size-11 rounded-full" src={card.image} alt="User Image" />
 
                                     <div className="flex flex-col">
 
