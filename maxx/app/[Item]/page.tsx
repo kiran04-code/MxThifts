@@ -9,7 +9,7 @@ import Similar from './components/Similar';
 import Image from 'next/image';
 interface Props {
     params: {
-        Item: number
+        Item: string
     }
 
 }
