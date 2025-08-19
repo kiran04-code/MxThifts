@@ -14,12 +14,14 @@ import Footer2 from "@/components/Footer2";
 import Cloth from "@/components/bradingComponents/Cloth";
 import MarQuee from "@/components/MarQuee";
 import Sell from "@/components/sellSection/sell";
-import {Toaster} from "react-hot-toast"
+import { Toaster } from "react-hot-toast"
 import GoogleAuth from "./login/components/GoogleAuth";
+import Feed01 from "@/components/FeeDBackSection/feed01";
+import DressStype from "@/components/sellSection/DressStype";
 export default function Home() {
   return (
     <div className="flex-col  ">
-      
+
       <div className="md:flex md:justify-between flex justify-between md:px-20 md:py-5 px-5 py-2 ">
         <div>
           <Nvbar2 />
@@ -37,18 +39,23 @@ export default function Home() {
       <div className="mt-20 md:flex md:justify-start md:px-20 px-2">
         <AnimationSider />
       </div>
-      <div className="md:flex mt-10 md:justify-start md:px-20 gap-5">
-        <Sell/>
+     <div className="mt-20">
+       <Sell />
+      <DressStype />
+          <Feed01 />
+     </div>
+      <div className="md:flex mt-10 md:justify-start md:px-33 md:gap-8 ">
+
         <FaqSection />
-        <Cloth/>
+        <Cloth />
+
       </div>
       <div className="py-20">
         <ImageSections />
       </div>
       <Footer2 />
-   
       <Footer />
-    
+
     </div>
   );
 }
