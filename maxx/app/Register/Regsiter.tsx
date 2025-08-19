@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/UserAuth';
 import axios from 'axios';
 import GoogleAuth from '../login/components/GoogleAuth';
+import Image from 'next/image';
 
 const Regsiter = () => {
  
@@ -60,7 +61,7 @@ const Regsiter = () => {
       <div className="w-full max-w-md  rounded-2xl p-4 md:p-8">
 
         <div className="flex gap-2 items-center mb-6">
-          <img src="black_logo.png" alt="logo" className="w-12 h-12" />
+          <Image height={120} width={120} src="/black_logo.png" alt="logo" className="w-12 h-12" />
           <p className="text-2xl font-semibold">MaxxThift's</p>
         </div>
 
