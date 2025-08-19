@@ -5,6 +5,7 @@ import SreachNavogte from '@/components/SreachNavogte';
 import React, { useState } from 'react'
 import { IoIosAdd } from "react-icons/io";
 import { RiSubtractLine } from "react-icons/ri";
+import Similar from './components/Similar';
 interface Props {
     params: {
         Item: number
@@ -190,7 +191,7 @@ const Page = ({ params }: Props) => {
                 </div>
 
             </div>
-
+<div className='flex justify-center items-center mt-5'><Similar/></div>
         </div>
         
         </div>
