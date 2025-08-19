@@ -18,6 +18,7 @@ import { Toaster } from "react-hot-toast"
 import GoogleAuth from "./login/components/GoogleAuth";
 import Feed01 from "@/components/FeeDBackSection/feed01";
 import DressStype from "@/components/sellSection/DressStype";
+import Carts from "@/components/sellSection/Carts";
 export default function Home() {
   return (
     <div className="flex-col  ">
@@ -39,6 +40,7 @@ export default function Home() {
       <div className="mt-20 md:flex md:justify-start md:px-20 px-2">
         <AnimationSider />
       </div>
+      <Carts/>
      <div className="mt-20">
        <Sell />
       <DressStype />

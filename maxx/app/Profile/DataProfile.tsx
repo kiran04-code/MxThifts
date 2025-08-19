@@ -21,7 +21,6 @@ const hnadleLogout  = async()=>{
     setUser(null)
     toast.success(data.message)
     routes.push("/")
-
   }
 }
 return <p>You are an admin, welcome {user?.email} <button className="bg-red-500 p-5 rounded-2xl text-white" onClick={() => hnadleLogout()}>Sign Out</button></p>
