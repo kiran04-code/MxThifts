@@ -8,16 +8,19 @@ export interface CurrentUser {
   number?: number;
   image?:string
 }
-
 interface AuthContextType {
   user: CurrentUser | null;
   setUser: React.Dispatch<React.SetStateAction<CurrentUser | null>>;
+  input: string;
+  setInput: React.Dispatch<React.SetStateAction<string>>;
 }
+
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<CurrentUser | null>(null);
+const [input, setInput] = useState<string>("");
 
   const auth = async()=>{
     try {
@@ -34,7 +37,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
 
   },[])
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser,setInput,input }}>
       {children}
     </AuthContext.Provider>
   );

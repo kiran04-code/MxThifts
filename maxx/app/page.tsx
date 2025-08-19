@@ -19,6 +19,7 @@ import GoogleAuth from "./login/components/GoogleAuth";
 import Feed01 from "@/components/FeeDBackSection/feed01";
 import DressStype from "@/components/sellSection/DressStype";
 import Carts from "@/components/sellSection/Carts";
+import SearchEngine from "@/components/SearchEngine";
 export default function Home() {
   return (
     <div className="flex-col  ">
@@ -27,9 +28,11 @@ export default function Home() {
         <div>
           <Nvbar2 />
         </div>
-        <div className="md:flex hidden">
+       
+        <div className="md:flex hidden md:justify-center md:items-center gap-5">
+          <SearchEngine/>
           <NavigationMenuDemos />
-        </div>
+      </div>
         <div className="md:hidden flex p-1">
           <MobileNavbar />
         </div>

@@ -1,11 +1,13 @@
 "use client"
 import React from 'react'
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
 const AnimationSider = () => {
+    const Routes  = useRouter()
     type item = {
         title: string,
-        image: string
-
+        image: string,
+        path:string
     }
     const [stopScroll, setStopScroll] = React.useState(false);
 
@@ -16,6 +18,7 @@ const AnimationSider = () => {
             title: "Unlock Your Shirt Jounery",
 
             image: "/max01.jpg",
+            path:"shirt"
 
         },
 
@@ -24,6 +27,7 @@ const AnimationSider = () => {
             title: "Design Your Digital Future",
 
             image: "/im3.jpg",
+            path:"jeans"
 
         },
 
@@ -32,6 +36,7 @@ const AnimationSider = () => {
             title: "Build with Passion, Ship with Pride",
 
             image: "/im1.jpeg",
+            path:"T-Shirt"
 
         },
 
@@ -40,6 +45,7 @@ const AnimationSider = () => {
             title: "Think Big, Code Smart",
 
             image: "/im4.jpg",
+            path:"T-Shirt"
 
         },
 
@@ -90,7 +96,7 @@ const AnimationSider = () => {
 
                         {[...cardData, ...cardData].map((card, index) => (
 
-                            <div key={index} className="w-56 mx-4 h-[13rem] p-2 relative group hover:scale-90 transition-all duration-300">
+                            <div key={index} onClick={()=>Routes.push(`/caregroy/${card.path}`)} className="w-56 mx-4 h-[13rem] p-2 relative group hover:scale-90 transition-all duration-300">
 
                                 <Image width={500}
                                     height={300} src={card.image} alt="card" className="w-full h-full rounded-xl object-cover" />
