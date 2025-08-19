@@ -179,8 +179,8 @@ const Feed01 = () => {
                 <div className="marquee-inner flex transform-gpu min-w-[200%] pt-10 pb-5   ">
 
                     {
-                        cardsData.map((card)=>(
-        <div className="p-4 rounded-lg mx-4 shadow hover:shadow-lg transition-all duration-200 w-72 shrink-0   border-3 border-black shadow">
+                        cardsData.map((card,index)=>(
+        <div key={index} className="p-4 rounded-lg mx-4  hover:shadow-lg transition-all duration-200 w-72 shrink-0   border-3 border-black shadow">
 
             <div className="flex gap-2">
 
@@ -249,10 +249,9 @@ const Feed01 = () => {
 
                 <div className="marquee-inner marquee-reverse flex transform-gpu min-w-[200%] pt-10 pb-5">
 
-
                     {
-                        cardsData.map((card) => (
-                            <div className="p-4 rounded-lg mx-4 border-3 border-black shadow hover:shadow-lg transition-all duration-200 w-72 shrink-0">
+                        cardsData.map((card,index) => (
+                            <div key={index}   className="p-4 rounded-lg mx-4 border-3 border-black shadow hover:shadow-lg transition-all duration-200 w-72 shrink-0">
 
                                 <div className="flex gap-2">
 
