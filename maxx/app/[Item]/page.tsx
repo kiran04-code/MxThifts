@@ -7,9 +7,14 @@ import { IoIosAdd } from "react-icons/io";
 import { RiSubtractLine } from "react-icons/ri";
 import Similar from './components/Similar';
 import Image from 'next/image';
-
-const Page = ({ params }: { params: Promise<{ Item: string }> }) => {
-      const { Item } = React.use(params);
+interface ProductDetailsPageParam {
+    Item:string
+}
+type ProductDetailsPageProp = {
+  params:Promise<ProductDetailsPageParam>;
+};
+const Page = ( pros:ProductDetailsPageProp) => {
+      const { Item } = React.use(pros.params);
     const product = {
         name: "Nike Pegasus 41 shoes",
 

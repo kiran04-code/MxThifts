@@ -14,7 +14,10 @@ const page = () => {
       console.log(user)
     return (
         <div>
-            <div className='md:flex md:justify-center justify-center  bg-gray-500 p-5 items-center md:p-5 flex md:px-10 '><SearchEngine /></div>
+            <div className='md:flex md:justify-center justify-center  bg-gray-200 p-5 items-center md:p-5 flex md:px-10 '>
+
+                <div className='p-2 md:p-1 px-5'><SearchEngine /></div>
+            </div>
             <div className='flex justify-center items-start px-25 flex-col'>
                 <h1 className='md:text-4xl text-2xl text-nowrap font-bold bg-gradient-to-t from-black to-gray-400 text-transparent bg-clip-text'>All Product</h1>
                 <div className='w-20 h-1.5 bg-gradient-to-r from-black to-gray-400  mt-3'></div>
