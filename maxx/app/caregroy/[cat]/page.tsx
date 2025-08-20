@@ -5,7 +5,7 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from "framer-motion"
 import Image from 'next/image'
-const page = ({ params }: { params: Promise<{ cat: string }> }) => {
+const Page = ({ params }: { params: Promise<{ cat: string }> }) => {
     const { cat } = React.use(params)
     const router = useRouter()
     const filterData = clothesDummy.filter((data, index) => data.category === cat)
@@ -57,4 +57,4 @@ const page = ({ params }: { params: Promise<{ cat: string }> }) => {
         </div>
     )
 }
-export default page
+export default Page
