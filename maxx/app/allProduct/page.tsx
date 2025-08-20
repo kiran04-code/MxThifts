@@ -2,27 +2,30 @@
 import Footer from '@/components/Footer'
 import SearchEngine from '@/components/SearchEngine'
 import React from 'react'
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 import Image from 'next/image'
 import { clothesDummy } from '@/aseats/Assets'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/context/UserAuth'
 const page = () => {
-      const router = useRouter()
-      const FilterDaata =clothesDummy.filter((data)=>data.category === "text")
-      const {user} = useAuth()!
-      console.log(user)
+    const router = useRouter()
+    const FilterDaata = clothesDummy.filter((data) => data.category === "text")
+    const { user } = useAuth()!
+    console.log(user)
     return (
         <div>
             <div className='md:flex md:justify-center justify-center  bg-gray-200 p-5 items-center md:p-5 flex md:px-10 '>
 
-                <div className='p-2 md:p-1 px-5'><SearchEngine /></div>
+                <div className="flex justify-center items-center px-10 md:px-20 py-2 ">
+                    <div className='flex '><SearchEngine /></div>
+                </div>
+
             </div>
             <div className='flex justify-center items-start px-25 flex-col'>
                 <h1 className='md:text-4xl text-2xl text-nowrap font-bold bg-gradient-to-t from-black to-gray-400 text-transparent bg-clip-text'>All Product</h1>
                 <div className='w-20 h-1.5 bg-gradient-to-r from-black to-gray-400  mt-3'></div>
             </div>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-10 py-10'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-10 py-10'>
                 {clothesDummy.map((item, index) => (
                     <motion.div
                         whileHover={{ y: -8 }}
@@ -53,7 +56,7 @@ const page = () => {
                     </motion.div>
                 ))}
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

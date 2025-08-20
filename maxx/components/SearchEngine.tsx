@@ -13,7 +13,7 @@ const SearchEngine = () => {
                     <input value={input} onChange={(e)=>setInput(e.target.value)}   onClick={(e)=>{e.preventDefault(); routes.push("/allProduct")} }
                         type="text"
                         placeholder="Search here..."
-                        className="md:w-full p-4 w-70 pr-12 rounded-2xl border border-gray-400 
+                        className="md:w-full p-4 w-70  rounded-2xl border border-gray-400 
                bg-black text-white placeholder-gray-400 
                focus:outline-none focus:ring-2 focus:ring-white 
                transition duration-300"

@@ -54,7 +54,7 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 export function NavigationMenuDemos() {
-  const { user } = useAuth()!;
+  const {user,setCartItem,CartIteam} = useAuth()!
   return (
     <NavigationMenu viewport={false}>
       <NavigationMenuList className="flex gap-10 p-4 rounded-[10px] bg-black shadow-lg" >
@@ -115,7 +115,14 @@ export function NavigationMenuDemos() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-white"> <CiShoppingCart className="text-2xl font-bold text-white"/>  </NavigationMenuTrigger>
+          <NavigationMenuTrigger className="text-white relative">
+  <CiShoppingCart className="text-2xl font-bold hover:text-black" />
+  <div className="absolute -top-2 -right-2 w-5 h-5 flex justify-center items-center bg-white rounded-full">
+    <p className="text-black text-[13px]">{
+      Object.values(CartIteam)
+      }</p>
+  </div>
+</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[300px] gap-4">
               <li>

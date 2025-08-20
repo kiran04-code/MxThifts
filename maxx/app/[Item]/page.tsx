@@ -7,14 +7,20 @@ import { IoIosAdd } from "react-icons/io";
 import { RiSubtractLine } from "react-icons/ri";
 import Similar from './components/Similar';
 import Image from 'next/image';
+import { NavigationMenu } from '@radix-ui/react-navigation-menu';
+import { NavigationMenuDemos } from '@/components/Navbar';
+import MobileNavbar from '@/components/MobileNavbar';
+import SearchEngine from '@/components/SearchEngine';
+import { useAuth } from '@/context/UserAuth';
+import toast, { Toaster } from 'react-hot-toast';
 interface ProductDetailsPageParam {
-    Item:string
+    Item: string
 }
 type ProductDetailsPageProp = {
-  params:Promise<ProductDetailsPageParam>;
+    params: Promise<ProductDetailsPageParam>;
 };
-const Page = ( pros:ProductDetailsPageProp) => {
-      const { Item } = React.use(pros.params);
+const Page = (pros: ProductDetailsPageProp) => {
+    const { Item } = React.use(pros.params);
     const product = {
         name: "Nike Pegasus 41 shoes",
 
@@ -52,19 +58,28 @@ const Page = ( pros:ProductDetailsPageProp) => {
 
     const dummsyMal = clothesDummy.find((data) => data.id === Item)
     const [thumbnail, setThumbnail] = React.useState<string>(dummsyMal?.images[0].image ?? "");
-    const [cart, setCart] = useState(1)
-    const AddTOCart = () => {
-        setCart(cart + 1)
-    }
-    const RemoveToCart = () => {
-        setCart(cart + 1)
-        if (cart > 1) {
-            setCart(cart - 1)
-        }
-    }
+     const {user,CartIteam,setCartItem,addToCart,RemoveToCart} = useAuth()!
     return dummsyMal && (
         <div>
-            <div className=''><SreachNavogte /></div>
+            <Toaster
+                position="bottom-right"
+                toastOptions={{
+                    style: {
+                        background: "#171717",
+                        color: "#fff",
+                    },
+                }}
+            />
+            <div className='flex justify-evenly items-center w-full p-3'>
+
+                <SearchEngine />
+                <div className="md:flex hidden md:justify-center md:items-center gap-5">
+
+                    <NavigationMenuDemos />
+                </div>
+                <div className="hidden  p-1">
+                    <MobileNavbar />
+                </div></div>
             <div className=' md:p-20 p-2'>
                 <div className="max-w-6xl w-full px-6">
                     <p>
@@ -176,10 +191,10 @@ const Page = ( pros:ProductDetailsPageProp) => {
                             <div className="flex items-center mt-10 gap-4 text-base">
 
                                 <div className="w-full py-3.5 cursor-pointer flex justify-center items-center md:gap-8 gap-2  rounded-2xl bg-gray-300 font-medium  text-gray-800/80 hover:bg-gray-200 transition" >
-                                    <IoIosAdd onClick={AddTOCart} className='text-3xl transition rounded-2xl hover:bg-gray-500 hover:text-white' /><p>{cart}</p><RiSubtractLine onClick={RemoveToCart} className='text-3xl transition rounded-2xl hover:bg-gray-500 hover:text-white' />
+                                    <IoIosAdd onClick={()=>addToCart(dummsyMal.id)} className='text-3xl transition rounded-2xl hover:bg-gray-500 hover:text-white' /><p>{Object.values(CartIteam)}</p><RiSubtractLine onClick={()=>RemoveToCart(dummsyMal.id)} className='text-3xl transition rounded-2xl hover:bg-gray-500 hover:text-white' />
                                 </div>
 
-                                <button className="w-full py-3.5  rounded-2xl cursor-pointer font-medium bg-black text-white hover:bg-gray-600 transition" >
+                                <button  onClick={()=>addToCart(dummsyMal.id)} className="w-full py-3.5  rounded-2xl cursor-pointer font-medium bg-black text-white hover:bg-gray-600 transition" >
 
                                     Add to Cart
 

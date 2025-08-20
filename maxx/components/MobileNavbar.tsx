@@ -3,6 +3,11 @@ import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
+import { CiShoppingCart } from "react-icons/ci";
+import { CgProfile } from "react-icons/cg";
+import { FaBlogger } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
+import { IoMdLogIn } from "react-icons/io";
 import Link from "next/link";
 import { useAuth } from "@/context/UserAuth";
 import Image from "next/image";
@@ -15,7 +20,7 @@ const sidebarVariants = {
 
 const MobileNavbar = () => {
   const [open, setOpen] = useState(false);
-  const  {user} = useAuth()!
+  const  {user,CartIteam} = useAuth()!
   return (
     <div className="md:hidden z-50">
       <div
@@ -50,18 +55,17 @@ const MobileNavbar = () => {
 
             {/* Nav Links */}
             <nav className="mt-10 flex flex-col gap-6 text-lg font-medium">
-              <Link href="/" onClick={() => setOpen(false)}>Home</Link>
+              <Link href="/" onClick={() => setOpen(false)} className="flex gap-3 items-center" ><FaHome/>Home</Link>
              {
-              user? null : <Link href="/login" onClick={() => setOpen(false)}>Login</Link>
+              user? null : <Link href="/login" onClick={() => setOpen(false)} className="flex gap-3 items-center"  ><IoMdLogIn/>Login</Link>
              }
-              <Link href="/blog" onClick={() => setOpen(false)}>Blog</Link>
+              <Link href="/blog" onClick={() => setOpen(false)} className="flex gap-3 items-center" ><FaBlogger/>Blog</Link>
              {
-              user ? <Link href="/cart" onClick={() => setOpen(false)}>Cart</Link>:null
+              user ? <Link href="/cart" onClick={() => setOpen(false)} className="flex gap-3 items-center" ><CiShoppingCart/>Cart <p className="bg-black text-white rounded-full px-2">{Object.values(CartIteam)}</p></Link>:null
              }
              {
-              user ? <Link href="/Profile" onClick={() => setOpen(false)}>Profile</Link>:null
+              user ? <Link href="/Profile" onClick={() => setOpen(false)} className="flex gap-3 items-center"><CgProfile/>Profile</Link>:null
              }
-              <Link href="/about" onClick={() => setOpen(false)}>About</Link>
             </nav>
           </motion.div>
         )}

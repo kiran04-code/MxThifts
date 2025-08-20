@@ -31,7 +31,7 @@ export default function Home() {
        
         <div className="md:flex hidden md:justify-center md:items-center gap-5">
           <SearchEngine/>
-          <NavigationMenuDemos />
+          <NavigationMenuDemos/>
       </div>
         <div className="md:hidden flex p-1">
           <MobileNavbar />
