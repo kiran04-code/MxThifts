@@ -7,7 +7,7 @@ import Image from 'next/image';
 import React from 'react'
 import { MdDeleteForever } from "react-icons/md";
 const Page = () => {
-    const {CartIteam} = useAuth()!
+    const {CartIteam,addToCart,RemoveToCart} = useAuth()!
     console.log(Object.keys(CartIteam))
     const val = Object.keys(CartIteam)
     const  ids = val.map((data)=>{return data}) 
@@ -57,14 +57,14 @@ const filterProduct = clothesDummy.filter((data) =>
                                     >
                                         -
                                     </button>
-                                    <span className="px-3">1</span>
-                                    <button
+                                    <span className="px-3">{Object.values(CartIteam)}</span>
+                                    <button onClick={()=>addToCart(item.id)}
                                         aria-label="Increase quantity"
                                         className="px-3 py-1 border rounded-md"
                                     >
                                         +
                                     </button>
-                                    <button
+                                    <button onClick={()=>RemoveToCart(item.id)}
                                         aria-label="Remove item"
                                         className="px-3 py-1 text-red-600 hover:text-red-800"
                                     >
@@ -104,7 +104,7 @@ const filterProduct = clothesDummy.filter((data) =>
                     </button>
                     <div className='flex justify-center items-center flex-col'>
                        
-                        <p className='text-[12px] bg-gray-200 p-2 rounded-[5px] mt-5'>Razorpay may take some time because it’s in beta mode. Please be patient.</p>
+                        <p className='text-[12px] bg-gray-200 p-2 rounded-[5px] text-center mt-5'>Razorpay may take some time because it’s in beta mode. Please be patient.</p>
                          <Image src={"https://d6xcmfyh68wv8.cloudfront.net/newsroom-content/uploads/2024/05/Razorpay-Logo.jpg"} alt='' width={200} height={40}/>
                     </div>
                 </div>
