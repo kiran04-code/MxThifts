@@ -14,6 +14,8 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { useAuth } from "@/context/UserAuth";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -55,6 +57,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function NavigationMenuDemos() {
   const {user,setCartItem,CartIteam} = useAuth()!
+  const router = useRouter()
   return (
     <NavigationMenu viewport={false}>
       <NavigationMenuList className="flex gap-10 p-4 rounded-[10px] bg-black shadow-lg" >
@@ -64,31 +67,27 @@ export function NavigationMenuDemos() {
             user ? null:<Link href={"/Register"} className="text-[#ffffff] ml-2 hover:bg-white hover:text-black p-2 rounded-[10px]  transition">Login</Link>
           }
           <NavigationMenuContent>
-            <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] font-bold">
+            <ul className="grid gap-2 lg:grid-cols-[.75fr_1fr] font-bold">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
                   <Link
                     className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
                     href="/"
                   >
-                    <div className="mt-4 mb-2 text-lg font-medium">
-                        Primium
+                    <Image src={"/img8.jpg"}  alt="" width={250} height={250} className="rounded-xl "/>
+                    <div className=" flex flex-col justify-center items-center">
+                       <p className=" mt-4 mb-2` font-bold text-transparent  bg-gradient-to-t bg-clip-text from-black to-white text-4xl"> Primium</p>
+                       <div>
+                             <div className="flex justify-center items-center gap-2">
+                              <Image src={"/black_logo.png"}  alt=""  width={30} height={30}/>
+                              <p>Maxx Thift's</p>
+                             </div>
+                       </div>
                     </div>
-                    <p className="text-muted-foreground text-sm leading-tight">
-                      Primium designed components built with Maxx Thrift's .
-                    </p>
                   </Link>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
+
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -116,30 +115,17 @@ export function NavigationMenuDemos() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger className="text-white relative">
-  <CiShoppingCart className="text-2xl font-bold hover:text-black" />
+            {
+          user? <div> <CiShoppingCart onClick={()=>router.push("/CartPage")}   className="text-2xl font-bold hover:text-black" />
   <div className="absolute -top-2 -right-2 w-5 h-5 flex justify-center items-center bg-white rounded-full">
     <p className="text-black text-[13px]">{
       Object.values(CartIteam)
       }</p>
-  </div>
+  </div></div>:null
+         }
 </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[300px] gap-4">
-              <li>
-             
-                <NavigationMenuLink asChild>
-                  <Link href="#">
-                    <div className="font-medium">All Carts</div>
-                    <div className="text-muted-foreground">
-                      Read our latest blog posts.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
+          
         </NavigationMenuItem>
-       
       </NavigationMenuList>
     </NavigationMenu>
   )

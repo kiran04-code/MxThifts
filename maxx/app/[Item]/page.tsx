@@ -13,6 +13,7 @@ import MobileNavbar from '@/components/MobileNavbar';
 import SearchEngine from '@/components/SearchEngine';
 import { useAuth } from '@/context/UserAuth';
 import toast, { Toaster } from 'react-hot-toast';
+import ReusedCompoennts from '@/components/Navbars/ReusedCompoennts';
 interface ProductDetailsPageParam {
     Item: string
 }
@@ -70,16 +71,7 @@ const Page = (pros: ProductDetailsPageProp) => {
                     },
                 }}
             />
-            <div className='flex justify-evenly items-center w-full p-3'>
-
-                <SearchEngine />
-                <div className="md:flex hidden md:justify-center md:items-center gap-5">
-
-                    <NavigationMenuDemos />
-                </div>
-                <div className="hidden  p-1">
-                    <MobileNavbar />
-                </div></div>
+            <ReusedCompoennts/>
             <div className=' md:p-20 p-2'>
                 <div className="max-w-6xl w-full px-6">
                     <p>
@@ -108,12 +100,8 @@ const Page = (pros: ProductDetailsPageProp) => {
                                 ))}
 
                             </div>
-
-
                             <div className="border border-gray-500/30 max-w-100 rounded overflow-hidden">
-
                                 <Image width={400} height={400} src={thumbnail} alt="Selected product" className="w-full h-full object-cover" />
-
                             </div>
 
                         </div>
@@ -121,7 +109,7 @@ const Page = (pros: ProductDetailsPageProp) => {
 
                         <div className="text-sm w-full md:w-1/2 md:py-15 md:p-5 mb-10   ">
 
-                            <h1 className="text-4xl font-bold md:text-nowrap  text-transparent bg-clip-text bg-gradient-to-t from-black to-white">{dummsyMal.name}</h1>
+                            <h1 className="text-4xl font-bold   text-transparent bg-clip-text bg-gradient-to-t from-black to-white">{dummsyMal.name}</h1>
 
 
                             <div className="flex items-center gap-0.5 mt-1">
