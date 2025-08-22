@@ -38,14 +38,13 @@ const Page = () => {
     const [coupeCodetrue, setCoupeCodetrue] = useState<boolean>(false)
     const [totamAmount, setTotalAmout] = useState<number>(getTotalAmmoutCart())
     const [cartAryy, setCartAyy] = useState<Product[]>([])
-    const getCart = () => {
-        const tempArry: Product[] = [];
-        for (const key in CartIteam) {
-            const product = clothesDummy.find((data) => data.id === key)
-            tempArry.push(product)
-        }
-        setCartAyy(tempArry)
-    }
+   const getCart = () => {
+  const tempArry = Object.keys(CartIteam)
+    .map((key) => clothesDummy.find((data) => data.id === key))
+    .filter((p): p is Product => p !== undefined); // ✅ type guard
+
+  setCartAyy(tempArry);
+};
     useEffect(() => {
         getCart()
     }, [CartIteam])
