@@ -5,7 +5,7 @@ import MobileNavbar from '@/components/MobileNavbar';
 import ReusedCompoennts from '@/components/Navbars/ReusedCompoennts'
 import Nvbar2 from '@/components/Nvbar2';
 import { useAuth } from '@/context/UserAuth';
-import { p } from 'framer-motion/client';
+
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
@@ -39,7 +39,7 @@ const Page = () => {
     const [totamAmount, setTotalAmout] = useState<number>(getTotalAmmoutCart())
     const [cartAryy, setCartAyy] = useState<Product[]>([])
     const getCart = () => {
-        const   tempArry: any[] = []
+        const tempArry: Product[] = [];
         for (const key in CartIteam) {
             const product = clothesDummy.find((data) => data.id === key)
             tempArry.push(product)
