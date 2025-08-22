@@ -8,7 +8,7 @@ import axios from "axios";
 export default function Page() {
   const { user } = useAuth()!;
   const [addsunmited, setaddsunmited] = useState<boolean>(false)
-  const [Userid, setUserId] = useState<string>("")
+  const [Userid, setUserId] = useState<string | undefined>(undefined);
 
   const [form, setForm] = useState({
     line1: "",
