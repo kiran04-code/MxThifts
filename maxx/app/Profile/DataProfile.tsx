@@ -67,8 +67,8 @@ function DataProfile() {
                 <button onClick={()=>setedit(true)} className="p-2 rounded-xl bg-black text-white">Edit Address</button>
                 </div>
                 {
-                  user?.address?.map((data) => (
-                    <div>   <p><span className="font-medium">Home:</span> {data?.address1}</p>
+                  user?.address?.map((data,index) => (
+                    <div key={index}>   <p><span className="font-medium">Home:</span> {data?.address1}</p>
                       <p><span className="font-medium">Home2:</span> {data?.address2}</p>
                       <p><span className="font-medium">city:</span> {data?.city}</p>
                       <p><span className="font-medium">State:</span> {data?.state}</p>
