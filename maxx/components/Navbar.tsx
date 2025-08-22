@@ -1,5 +1,4 @@
 "use client"
-
 import * as React from "react"
 import Link from "next/link"
 import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react"
@@ -56,7 +55,7 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 export function NavigationMenuDemos() {
-  const {user,setCartItem,CartIteam} = useAuth()!
+  const {user,setCartItem,CartIteam,getCartCout} = useAuth()!
   const router = useRouter()
   return (
     <NavigationMenu viewport={false}>
@@ -116,12 +115,12 @@ export function NavigationMenuDemos() {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="text-white relative">
             {
-          user? <div> <CiShoppingCart onClick={()=>router.push("/CartPage")}   className="text-2xl font-bold hover:text-black" />
+          user? <div><Link href={"/CartPage"}> <CiShoppingCart onClick={()=>router.push("/CartPage")}   className="text-2xl font-bold hover:text-black" />
   <div className="absolute -top-2 -right-2 w-5 h-5 flex justify-center items-center bg-white rounded-full">
     <p className="text-black text-[13px]">{
-      Object.values(CartIteam)
+     getCartCout()
       }</p>
-  </div></div>:null
+  </div></Link></div>:null
          }
 </NavigationMenuTrigger>
           

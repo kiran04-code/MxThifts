@@ -1,14 +1,19 @@
 "use client";
+import { clothesDummy } from "@/aseats/Assets";
+import { IAddress } from "@/model/user";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { createContext, ReactNode, use, useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export interface CurrentUser {
+  _id:string
   name: string;
   email: string;
   number?: number;
-  image?: string
+  image?: string,
+  addressSubmit?:boolean
+  address:IAddress[]
 }
 interface AuthContextType {
   user: CurrentUser | null;
@@ -19,6 +24,9 @@ interface AuthContextType {
   setCartItem: React.Dispatch<React.SetStateAction<Record<string, number>>>
   addToCart: (item: string) => void;
   RemoveToCart: (item: string) => void;
+  UpdateCart: (item: string,quinity:number) => void;
+  getCartCout: () => number;
+  getTotalAmmoutCart:()=>number
 }
 
 
@@ -41,10 +49,10 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   }
   useEffect(() => {
     auth()
-
+    console.log(user)
   }, [])
   const addToCart = (item: string): void => {
-    if(!user) return router.push("/login")
+    if (!user) return router.push("/login")
     const crtData = structuredClone(CartIteam);
     if (crtData[item]) {
       crtData[item] += 1;
@@ -56,20 +64,46 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
 
   };
   const RemoveToCart = (item: string): void => {
-    if(!user) return router.push("/login")
+    if (!user) return router.push("/login")
     const crtData = structuredClone(CartIteam);
     if (crtData[item]) {
       crtData[item] -= 1;
       if (crtData[item] === 0) {
         delete crtData[item]
+        router.push("/")
       }
       setCartItem(crtData)
     }
     setCartItem(crtData);
     toast.success("Remove from cart")
   };
+  const UpdateCart = (item: string, quinity: number): void => {
+    if (!user) return router.push("/login")
+    const crtData = structuredClone(CartIteam);
+    crtData[item] === quinity
+    setCartItem(crtData)
+    toast.success("Update Cart")
+  };
+ // get cartCout
+ const getCartCout = ()=>{
+    let totalCount = 0;
+    for(const item in CartIteam){
+      totalCount+=CartIteam[item]
+    } 
+   return totalCount;
+ } 
+  const getTotalAmmoutCart = () => {
+   let totalAmmot = 0;
+   for(const item in CartIteam){
+     const products = clothesDummy.find((data)=>data.id === item)
+      if(CartIteam[item]>0){
+       totalAmmot+=products.offerPrice*CartIteam[item]
+      }
+   }
+   return Math.floor(totalAmmot*100)/100
+   }
   return (
-    <AuthContext.Provider value={{ user, setUser, setInput, input, CartIteam, setCartItem, RemoveToCart, addToCart }}>
+    <AuthContext.Provider value={{getTotalAmmoutCart, user, setUser, setInput, input, CartIteam, setCartItem, RemoveToCart,getCartCout, addToCart,UpdateCart }}>
       {children}
     </AuthContext.Provider>
   );

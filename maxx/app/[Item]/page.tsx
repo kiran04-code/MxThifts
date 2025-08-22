@@ -13,7 +13,10 @@ import MobileNavbar from '@/components/MobileNavbar';
 import SearchEngine from '@/components/SearchEngine';
 import { useAuth } from '@/context/UserAuth';
 import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 import ReusedCompoennts from '@/components/Navbars/ReusedCompoennts';
+import Navbrmobile from '@/components/reUsed/Navbrmobile';
+import Nvbar2 from '@/components/Nvbar2';
 interface ProductDetailsPageParam {
     Item: string
 }
@@ -59,7 +62,8 @@ const Page = (pros: ProductDetailsPageProp) => {
 
     const dummsyMal = clothesDummy.find((data) => data.id === Item)
     const [thumbnail, setThumbnail] = React.useState<string>(dummsyMal?.images[0].image ?? "");
-     const {user,CartIteam,setCartItem,addToCart,RemoveToCart} = useAuth()!
+    const { user, CartIteam, setCartItem, addToCart, RemoveToCart } = useAuth()!
+    const router = useRouter()
     return dummsyMal && (
         <div>
             <Toaster
@@ -71,7 +75,13 @@ const Page = (pros: ProductDetailsPageProp) => {
                     },
                 }}
             />
-            <ReusedCompoennts/>
+           <div className='hidden md:flex'>
+             <ReusedCompoennts />
+           </div>
+           <div className='md:hidden flex justify-between gap-2 p-3'>
+            <Nvbar2/>
+            <MobileNavbar/>
+           </div>
             <div className=' md:p-20 p-2'>
                 <div className="max-w-6xl w-full px-6">
                     <p>
@@ -156,37 +166,42 @@ const Page = (pros: ProductDetailsPageProp) => {
 
                                 <li>{dummsyMal.description}</li>
                             </ul>
+                            <div className="flex flex-wrap gap-3 mt-2">
+                                <div className="flex items-center gap-2 bg-gray-600 px-4 py-2 rounded-xl text-white text-sm font-medium shadow">
+                                    <span className="opacity-80">Size:</span>
+                                    <span>{dummsyMal.Size}</span>
+                                </div>
 
-                            <div className='flex mt-1 gap-5 md:flex md:flex-row flex-col'>
-                                <div className='flex gap-2 bg-gray-400 px- p-1 rounded-[10px] text-white'>
-                                    <p>Size</p>:
-                                    <p className='' >{dummsyMal.Size}</p>
+                                <div className="flex items-center gap-2 bg-gray-600 px-4 py-2 rounded-xl text-white text-sm font-medium shadow">
+                                    <span className="opacity-80">Length:</span>
+                                    <span>{dummsyMal.Length}</span>
                                 </div>
-                                <div className='flex gap-2 bg-gray-400 px-3 p-1 rounded-[10px] text-white'>
-                                    <p>Length</p>:
-                                    <p>{dummsyMal.Length}</p>
+
+                                <div className="flex items-center gap-2 bg-gray-600 px-4 py-2 rounded-xl text-white text-sm font-medium shadow">
+                                    <span className="opacity-80">Chest:</span>
+                                    <span>{dummsyMal.Chest}</span>
                                 </div>
-                                <div className='flex gap-2 bg-gray-400 px-3 p-1 rounded-[10px] text-white'>
-                                    <p>Chest</p>:
-                                    <p>{dummsyMal.Chest}</p>
-                                </div>
-                                <div className='flex gap-2 bg-gray-400 px-3 p-1 rounded-[10px] text-white'>
-                                    <p>Fit</p>:
-                                    <p>{dummsyMal.Fit}</p>
+
+                                <div className="flex items-center gap-2 bg-gray-600 px-4 py-2 rounded-xl text-white text-sm font-medium shadow">
+                                    <span className="opacity-80">Fit:</span>
+                                    <span>{dummsyMal.Fit}</span>
                                 </div>
                             </div>
 
+
                             <div className="flex items-center mt-10 gap-4 text-base">
 
-                                <div className="w-full py-3.5 cursor-pointer flex justify-center items-center md:gap-8 gap-2  rounded-2xl bg-gray-300 font-medium  text-gray-800/80 hover:bg-gray-200 transition" >
-                                    <IoIosAdd onClick={()=>addToCart(dummsyMal.id)} className='text-3xl transition rounded-2xl hover:bg-gray-500 hover:text-white' /><p>{Object.values(CartIteam)}</p><RiSubtractLine onClick={()=>RemoveToCart(dummsyMal.id)} className='text-3xl transition rounded-2xl hover:bg-gray-500 hover:text-white' />
-                                </div>
+                                {
+                                    !CartIteam[dummsyMal.id] ? <button onClick={() => { addToCart(dummsyMal.id); }} className="w-full py-3.5  rounded-2xl cursor-pointer font-medium bg-black text-white hover:bg-gray-600 transition">add</button> : (<> <div className="w-full py-3.5 cursor-pointer flex justify-center items-center md:gap-8 gap-2  rounded-2xl bg-gray-300 font-medium  text-gray-800/80 hover:bg-gray-200 transition" >
+                                        <IoIosAdd onClick={() => addToCart(dummsyMal.id)} className='text-3xl transition rounded-2xl hover:bg-gray-500 hover:text-white' /><p>{CartIteam[dummsyMal.id]}</p><RiSubtractLine onClick={() => RemoveToCart(dummsyMal.id)} className='text-3xl transition rounded-2xl hover:bg-gray-500 hover:text-white' />
+                                    </div>
 
-                                <button  onClick={()=>addToCart(dummsyMal.id)} className="w-full py-3.5  rounded-2xl cursor-pointer font-medium bg-black text-white hover:bg-gray-600 transition" >
+                                        <button onClick={() => addToCart(dummsyMal.id)} className="w-full py-3.5  rounded-2xl cursor-pointer font-medium bg-black text-white hover:bg-gray-600 transition" >
 
-                                    Add to Cart
+                                            Add to Cart
 
-                                </button>
+                                        </button></>)
+                                }
 
                             </div>
 

@@ -11,6 +11,8 @@ import { IoMdLogIn } from "react-icons/io";
 import Link from "next/link";
 import { useAuth } from "@/context/UserAuth";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import Navbrmobile from "./reUsed/Navbrmobile";
 
 const sidebarVariants = {
   hidden: { x: "-100%" },
@@ -20,12 +22,14 @@ const sidebarVariants = {
 
 const MobileNavbar = () => {
   const [open, setOpen] = useState(false);
-  const  {user,CartIteam} = useAuth()!
+  const  {user,CartIteam,getCartCout} = useAuth()!
+  const router = useRouter()
   return (
-    <div className="md:hidden z-50">
+    <div className="md:hidden z-50  justify-center items-center  gap-2 flex bg-white shadow-lg px-2 rounded-2xl">
+        <Navbrmobile/>
       <div
         onClick={() => setOpen(!open)}
-        className="bg-white p-3 rounded-xl shadow-lg flex justify-center items-center text-2xl cursor-pointer"
+        className=" p-3 rounded-xl flex justify-center items-center text-2xl cursor-pointer"
       >
         <FaBars />
       </div>

@@ -9,10 +9,10 @@ const Page = ({ params }: { params: Promise<{ cat: string }> }) => {
     const { cat } = React.use(params)
     const router = useRouter()
     const filterData = clothesDummy.filter((data, index) => data.category === cat)
-   
+     const [openedit,setedit] = useState<boolean>(false)
     return (
          <div className="min-h-screen flex flex-col justify-between">
-            {/* Title Section */}
+      
             <div className='flex justify-center items-center mt-10 flex-col'>
                 <h1 className='text-4xl font-bold bg-gradient-to-t from-black to-gray-400 text-transparent bg-clip-text'>
                     All {cat}
@@ -20,7 +20,7 @@ const Page = ({ params }: { params: Promise<{ cat: string }> }) => {
                 <div className='w-20 h-1.5 bg-gradient-to-r from-black to-gray-400  mt-3'></div>
             </div>
 
-            {/* Clothes Grid */}
+        
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-10 py-10'>
                 {filterData.map((item, index) => (
                     <motion.div
@@ -39,7 +39,7 @@ const Page = ({ params }: { params: Promise<{ cat: string }> }) => {
                             />
                         </div>
 
-                        {/* Details */}
+                    
                         <div className="p-4">
                             <h2 className="text-[15px] font-semibold text-gray-800 truncate">
                                 {item.name}
