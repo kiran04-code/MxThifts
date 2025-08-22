@@ -9,7 +9,6 @@ const Page = ({ params }: { params: Promise<{ cat: string }> }) => {
     const { cat } = React.use(params)
     const router = useRouter()
     const filterData = clothesDummy.filter((data, index) => data.category === cat)
-     const [openedit,setedit] = useState<boolean>(false)
     return (
          <div className="min-h-screen flex flex-col justify-between">
       
