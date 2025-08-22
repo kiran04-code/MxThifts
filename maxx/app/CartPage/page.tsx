@@ -39,7 +39,7 @@ const Page = () => {
     const [totamAmount, setTotalAmout] = useState<number>(getTotalAmmoutCart())
     const [cartAryy, setCartAyy] = useState<Product[]>([])
     const getCart = () => {
-        let tempArry: any[] = []
+        const   tempArry: any[] = []
         for (const key in CartIteam) {
             const product = clothesDummy.find((data) => data.id === key)
             tempArry.push(product)

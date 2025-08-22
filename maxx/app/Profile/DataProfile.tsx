@@ -105,9 +105,7 @@ function DataProfile() {
 
         </div>
       </div>
-      {
-      openedit ? <EditFromOfAdsress/>:null
-      }
+     
       <Footer />
     </div>
   )
