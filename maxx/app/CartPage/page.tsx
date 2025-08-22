@@ -36,7 +36,7 @@ const filterProduct = clothesDummy.filter((data) =>
                                 className="flex flex-col sm:flex-row items-center sm:items-start gap-4 border-b pb-4"
                             >
                                 {/* Image */}
-                                <img
+                                <Image width={30} height={40}
                                     src={item.images[0].image}
                                     alt={item.name}
                                     className="w-24 h-24 object-cover rounded-md"
