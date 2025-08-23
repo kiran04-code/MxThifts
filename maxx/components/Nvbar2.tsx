@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image';
 const Nvbar2 = () => {
   return (
-    <div className="md:flex flex  justify-center gap-2 px-3 items-center py-1 md:items-center md:gap-3 md:px-4 md:py-4 md:w-full bg-black shadow-md rounded-xl mt-2">
+    <div className="md:flex flex  p-3 justify-center gap-2 px-3 items-center py-2 md:items-center md:gap-3 md:px-4 md:py-4 md:w-full bg-black shadow-md rounded-xl mt-2">
       <Image
         width={500}
         height={300}

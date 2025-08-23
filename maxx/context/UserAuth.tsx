@@ -53,12 +53,11 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   }, [])
   const getAllProduct = async () => {
     const { data } = await axios.get("/api/getAllCloth")
-    console.log(data)
     setdummyuCloth(data.dummyCloth)
   }
   useEffect(() => {
     getAllProduct()
-  }, [dummyuCloth])
+  }, [])
   const addToCart = (item: string): void => {
     if (!user) return router.push("/login")
     const crtData = structuredClone(CartIteam);

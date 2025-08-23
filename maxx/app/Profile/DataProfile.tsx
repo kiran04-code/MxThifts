@@ -18,7 +18,7 @@ function DataProfile() {
   const routes = useRouter()
   const { user, setUser } = useAuth()!
   const [adress, setAdress] = useState(false)
-  console.log(user)
+  console.log(user?._id)
 
   if (!user) {
     routes.push("/login")

@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { FaInstagram } from 'react-icons/fa'
 const Footer = () => {
   return (
     <div className='bg-black'>
@@ -11,6 +12,14 @@ const Footer = () => {
                   <div className='flex  items-center  gap-2'>
                       <Image alt=""  width={50} height={50} src="/IMG_4331.PNG" />
                       <h1 className='font-bold text-3xl'>Maxx Thrift's</h1>
+                        <Link
+                  href="https://www.instagram.com/maxx.thrifts_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-pink-500 transition"
+                >
+                  <FaInstagram size={32} />
+                </Link>
                   </div>
                     <p className="mt-6 text-sm">
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -36,9 +45,16 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <p className="pt-4 text-center text-sm pb-5">
-                Copyright {new Date().getFullYear()} © <Link href="https://kirran-dev.onrender.com">Kiran.dev</Link>. All Right Reserved.
-            </p>
+            <p className="pt-6 text-center text-sm pb-6 text-gray-400">
+          Designed & Developed by{" "}
+          <Link
+            href="https://kirran-dev.onrender.com"
+            className="underline font-medium hover:text-white"
+          >
+            Kiran.dev
+          </Link>{" "}
+          | © {new Date().getFullYear()} Maxx Thrift’s — All Rights Reserved.
+        </p>
         </footer>
     </div>
   )
