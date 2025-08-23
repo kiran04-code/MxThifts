@@ -1,5 +1,6 @@
 "use client";
 import { clothesDummy } from "@/aseats/Assets";
+import { IProduct } from "@/model/Products";
 import { IAddress } from "@/model/user";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -7,33 +8,33 @@ import { createContext, ReactNode, use, useContext, useEffect, useState } from "
 import toast from "react-hot-toast";
 
 export interface CurrentUser {
-  _id:string
+  _id: string
   name: string;
   email: string;
   number?: number;
   image?: string,
-  addressSubmit?:boolean
-  address:IAddress[]
+  addressSubmit?: boolean
+  address: IAddress[]
 }
 interface AuthContextType {
   user: CurrentUser | null;
   setUser: React.Dispatch<React.SetStateAction<CurrentUser | null>>;
+  dummyuCloth: IProduct[];
   input: string;
   setInput: React.Dispatch<React.SetStateAction<string>>;
   CartIteam: Record<string, number>,
   setCartItem: React.Dispatch<React.SetStateAction<Record<string, number>>>
   addToCart: (item: string) => void;
   RemoveToCart: (item: string) => void;
-  UpdateCart: (item: string,quinity:number) => void;
+  UpdateCart: (item: string, quinity: number) => void;
   getCartCout: () => number;
-  getTotalAmmoutCart:()=>number
+  getTotalAmmoutCart: () => number
+
 }
-
-
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
 export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<CurrentUser | null>(null);
+  const [dummyuCloth, setdummyuCloth] = useState<IProduct[]>([]);
   const [input, setInput] = useState<string>("");
   const [CartIteam, setCartItem] = useState<Record<string, number>>({});
   const router = useRouter()
@@ -49,8 +50,15 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   }
   useEffect(() => {
     auth()
-    console.log(user)
   }, [])
+  const getAllProduct = async () => {
+    const { data } = await axios.get("/api/getAllCloth")
+    console.log(data)
+    setdummyuCloth(data.dummyCloth)
+  }
+  useEffect(() => {
+    getAllProduct()
+  }, [dummyuCloth])
   const addToCart = (item: string): void => {
     if (!user) return router.push("/login")
     const crtData = structuredClone(CartIteam);
@@ -84,29 +92,28 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     setCartItem(crtData)
     toast.success("Update Cart")
   };
- // get cartCout
- const getCartCout = ()=>{
+  // get cartCout
+  const getCartCout = () => {
     let totalCount = 0;
-    for(const item in CartIteam){
-      totalCount+=CartIteam[item]
-    } 
-   return totalCount;
- } 
+    for (const item in CartIteam) {
+      totalCount += CartIteam[item]
+    }
+    return totalCount;
+  }
   const getTotalAmmoutCart = () => {
-   let totalAmmot = 0;
-   for(const item in CartIteam){
-     const products = clothesDummy.find((data)=>data.id === item)
-     if(products){
-   if(CartIteam[item]>0){
-       totalAmmot+=products.offerPrice*CartIteam[item]
+    let totalAmmot = 0;
+    for (const item in CartIteam) {
+      const products = dummyuCloth.find((data) => data._id === item)
+
+      if (CartIteam[item] > 0) {
+        totalAmmot += products.offerPrice * CartIteam[item]
       }
-     }
-   
-   }
-   return Math.floor(totalAmmot*100)/100
-   }
+
+    }
+    return Math.floor(totalAmmot * 100) / 100
+  }
   return (
-    <AuthContext.Provider value={{getTotalAmmoutCart, user, setUser, setInput, input, CartIteam, setCartItem, RemoveToCart,getCartCout, addToCart,UpdateCart }}>
+    <AuthContext.Provider value={{ getTotalAmmoutCart, dummyuCloth, user, setUser, setInput, input, CartIteam, setCartItem, RemoveToCart, getCartCout, addToCart, UpdateCart }}>
       {children}
     </AuthContext.Provider>
   );

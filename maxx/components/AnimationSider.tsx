@@ -36,7 +36,7 @@ const AnimationSider = () => {
             title: "Build with Passion, Ship with Pride",
 
             image: "/im1.jpeg",
-            path:"T-Shirt"
+            path:"T-shirt"
 
         },
 
@@ -45,7 +45,7 @@ const AnimationSider = () => {
             title: "Think Big, Code Smart",
 
             image: "/im4.jpg",
-            path:"T-Shirt"
+            path:"T-shirt"
 
         },
 

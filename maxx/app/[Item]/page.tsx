@@ -59,10 +59,10 @@ const Page = (pros: ProductDetailsPageProp) => {
         ]
 
     };
-
-    const dummsyMal = clothesDummy.find((data) => data.id === Item)
-    const [thumbnail, setThumbnail] = React.useState<string>(dummsyMal?.images[0].image ?? "");
-    const { user, CartIteam, setCartItem, addToCart, RemoveToCart } = useAuth()!
+   const { user, CartIteam, setCartItem, addToCart, RemoveToCart ,dummyuCloth} = useAuth()!
+    const dummsyMal = dummyuCloth.find((data) => data._id === Item)
+    const [thumbnail, setThumbnail] = React.useState<string>(dummsyMal?.images[0]?.image ?? "");
+    
     const router = useRouter()
     return dummsyMal && (
         <div>
@@ -169,34 +169,31 @@ const Page = (pros: ProductDetailsPageProp) => {
                             <div className="flex flex-wrap gap-3 mt-2">
                                 <div className="flex items-center gap-2 bg-gray-600 px-4 py-2 rounded-xl text-white text-sm font-medium shadow">
                                     <span className="opacity-80">Size:</span>
-                                    <span>{dummsyMal.Size}</span>
+                                    <span>{dummsyMal.size}</span>
                                 </div>
 
                                 <div className="flex items-center gap-2 bg-gray-600 px-4 py-2 rounded-xl text-white text-sm font-medium shadow">
                                     <span className="opacity-80">Length:</span>
-                                    <span>{dummsyMal.Length}</span>
+                                    <span>{dummsyMal.length}</span>
                                 </div>
 
                                 <div className="flex items-center gap-2 bg-gray-600 px-4 py-2 rounded-xl text-white text-sm font-medium shadow">
                                     <span className="opacity-80">Chest:</span>
-                                    <span>{dummsyMal.Chest}</span>
+                                    <span>{dummsyMal.chest}</span>
                                 </div>
 
-                                <div className="flex items-center gap-2 bg-gray-600 px-4 py-2 rounded-xl text-white text-sm font-medium shadow">
-                                    <span className="opacity-80">Fit:</span>
-                                    <span>{dummsyMal.Fit}</span>
-                                </div>
+                                
                             </div>
 
 
                             <div className="flex items-center mt-10 gap-4 text-base">
 
                                 {
-                                    !CartIteam[dummsyMal.id] ? <button onClick={() => { addToCart(dummsyMal.id); }} className="w-full py-3.5  rounded-2xl cursor-pointer font-medium bg-black text-white hover:bg-gray-600 transition">add</button> : (<> <div className="w-full py-3.5 cursor-pointer flex justify-center items-center md:gap-8 gap-2  rounded-2xl bg-gray-300 font-medium  text-gray-800/80 hover:bg-gray-200 transition" >
-                                        <IoIosAdd onClick={() => addToCart(dummsyMal.id)} className='text-3xl transition rounded-2xl hover:bg-gray-500 hover:text-white' /><p>{CartIteam[dummsyMal.id]}</p><RiSubtractLine onClick={() => RemoveToCart(dummsyMal.id)} className='text-3xl transition rounded-2xl hover:bg-gray-500 hover:text-white' />
+                                    !CartIteam[dummsyMal._id] ? <button onClick={() => { addToCart(dummsyMal._id); }} className="w-full py-3.5  rounded-2xl cursor-pointer font-medium bg-black text-white hover:bg-gray-600 transition">add</button> : (<> <div className="w-full py-3.5 cursor-pointer flex justify-center items-center md:gap-8 gap-2  rounded-2xl bg-gray-300 font-medium  text-gray-800/80 hover:bg-gray-200 transition" >
+                                        <IoIosAdd onClick={() => addToCart(dummsyMal._id)} className='text-3xl transition rounded-2xl hover:bg-gray-500 hover:text-white' /><p>{CartIteam[dummsyMal._id]}</p><RiSubtractLine onClick={() => RemoveToCart(dummsyMal._id)} className='text-3xl transition rounded-2xl hover:bg-gray-500 hover:text-white' />
                                     </div>
 
-                                        <button onClick={() => addToCart(dummsyMal.id)} className="w-full py-3.5  rounded-2xl cursor-pointer font-medium bg-black text-white hover:bg-gray-600 transition" >
+                                        <button onClick={() => addToCart(dummsyMal._id)} className="w-full py-3.5  rounded-2xl cursor-pointer font-medium bg-black text-white hover:bg-gray-600 transition" >
 
                                             Add to Cart
 

@@ -5,31 +5,17 @@ import MobileNavbar from '@/components/MobileNavbar';
 import ReusedCompoennts from '@/components/Navbars/ReusedCompoennts'
 import Nvbar2 from '@/components/Nvbar2';
 import { useAuth } from '@/context/UserAuth';
+import { IProduct } from '@/model/Products';
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast';
 import { MdDeleteForever } from "react-icons/md";
-interface Product {
-    id: string;
-    name: string;
-    category: string;
-    price: string;
-    offerPrice: number;
-    rating: number;
-    description: string;
-    Size: string;
-    Chest: number;
-    Length: number;
-    images: { image: string }[]
-    shipeingPrice: number;
-    Fit: string;
-}
 
 
 const Page = () => {
-    const { CartIteam, addToCart, RemoveToCart, getTotalAmmoutCart,user } = useAuth()!
+    const { CartIteam, addToCart, RemoveToCart, getTotalAmmoutCart,user,dummyuCloth } = useAuth()!
     console.log(Object.keys(CartIteam))
     const router = useRouter()
     const [checkout, setchekout] = useState("")
@@ -37,11 +23,11 @@ const Page = () => {
     const [errorcopen, seterrorcopen] = useState('')
     const [coupeCodetrue, setCoupeCodetrue] = useState<boolean>(false)
     const [totamAmount, setTotalAmout] = useState<number>(getTotalAmmoutCart())
-    const [cartAryy, setCartAyy] = useState<Product[]>([])
+    const [cartAryy, setCartAyy] = useState<IProduct[]>([])
    const getCart = () => {
   const tempArry = Object.keys(CartIteam)
-    .map((key) => clothesDummy.find((data) => data.id === key))
-    .filter((p): p is Product => p !== undefined); // ✅ type guard
+    .map((key) => dummyuCloth.find((data) => data._id === key))
+    .filter((p): p is IProduct => p !== undefined); 
 
   setCartAyy(tempArry);
 };
@@ -92,7 +78,7 @@ const Page = () => {
                         <div className="space-y-4">
                             {cartAryy.map((item) => (
                                 <div
-                                    key={item.id}
+                                    key={item._id}
                                     className="flex flex-col sm:flex-row items-center sm:items-start gap-4 border-b pb-4"
                                 >
                                     <Image width={250} height={250}
@@ -103,26 +89,26 @@ const Page = () => {
 
                                     <div className="flex-1 text-center sm:text-left">
                                         <h3 className="font-semibold">{item.name}</h3>
-                                        <p className="text-sm text-gray-500">Size: {item.Size}</p>
+                                        <p className="text-sm text-gray-500">Size: {item?.size}  xl</p>
                                         <p className="text-lg font-bold mt-1">₹{item.offerPrice}</p>
                                     </div>
 
 
                                     <div className="flex items-center gap-2">
-                                        <button
+                                        <button onClick={() => RemoveToCart(item._id)}
                                             aria-label="Decrease quantity"
                                             className="px-3 py-1 border rounded-md"
                                         >
                                             -
                                         </button>
-                                        <span className="px-3">{CartIteam[item.id]}</span>
-                                        <button onClick={() => addToCart(item.id)}
+                                        <span className="px-3">{CartIteam[item._id]}</span>
+                                        <button onClick={() => addToCart(item._id)}
                                             aria-label="Increase quantity"
                                             className="px-3 py-1 border rounded-md"
                                         >
                                             +
                                         </button>
-                                        <button onClick={() => RemoveToCart(item.id)}
+                                        <button onClick={() => RemoveToCart(item._id)}
                                             aria-label="Remove item"
                                             className="px-3 py-1 text-red-600 hover:text-red-800"
                                         >

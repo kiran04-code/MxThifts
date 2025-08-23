@@ -5,10 +5,12 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from "framer-motion"
 import Image from 'next/image'
+import { useAuth } from '@/context/UserAuth'
 const Page = ({ params }: { params: Promise<{ cat: string }> }) => {
     const { cat } = React.use(params)
     const router = useRouter()
-    const filterData = clothesDummy.filter((data, index) => data.category === cat)
+    const {dummyuCloth} = useAuth()!
+    const filterData = dummyuCloth.filter((data, index) => data.category === cat)
     return (
          <div className="min-h-screen flex flex-col justify-between">
       
@@ -25,7 +27,7 @@ const Page = ({ params }: { params: Promise<{ cat: string }> }) => {
                     <motion.div
                         whileHover={{ y: -8 }}
                         key={index}
-                        onClick={() => router.push(`/${item.id}`)}
+                        onClick={() => router.push(`/${item._id}`)}
                         className="overflow-hidden w-60 hover:shadow-lg transform transition duration-300"
                     >
                         <div className="overflow-hidden">
