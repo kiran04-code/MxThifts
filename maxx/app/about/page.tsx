@@ -10,7 +10,7 @@ import { FaInstagram } from "react-icons/fa";
 export default function AboutPage() {
   return (
     <>
-  <div className="md:hidden flex justify-center p-3 items-center "> <Nvbar2/>  <MobileNavbar/></div>
+  <div className="md:hidden flex justify-between p-3 items-center gap-3 "> <Nvbar2/>  <MobileNavbar/></div>
     <div className="md:flex hidden md:justify-between   justify-center md:px-20 md:py-5 px-5 py-2" >
         <div><Nvbar2/></div>
       <div>  <NavigationMenuDemos/></div>
