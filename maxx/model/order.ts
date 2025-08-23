@@ -1,18 +1,24 @@
 
 import mongoose, { Schema } from "mongoose";
+import { IProduct } from "./Products";
+import { IUser } from "./user";
 
-type IOrder = {
-    UserId?: string;
-    productId: {}[]
+export type IOrder = {
+    UserId?: IUser;
+    productId: {
+    product: IProduct;
+    quantity: number;
+  }[]
     totalAmount: number;
     Status: string
     paymentMethod: string
+    createdAt:string
 }
 
 const OrderSchema = new mongoose.Schema<IOrder>(
     {
         UserId: {
-            type: Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: "User",
             required: true
 
@@ -24,14 +30,21 @@ const OrderSchema = new mongoose.Schema<IOrder>(
         },
         paymentMethod: {
             type: String,
-            default: "Offline Payment"
+            default: "COD "
         },
         productId: [
             {
+                product:{
                 type: Schema.Types.ObjectId,
                 ref: "CretaetdProducts",
                 required: true,
-            }
+            },
+            quantity: {
+          type: Number,
+          required: true,
+          default: 1,
+        },
+    }
         ]
         ,
         totalAmount: {

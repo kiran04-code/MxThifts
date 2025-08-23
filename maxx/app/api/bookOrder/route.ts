@@ -4,15 +4,18 @@ import { NextRequest, NextResponse } from "next/server"
 
 export const POST = async(req:NextRequest)=>{
     try {
-        const  {productId,Userid,price} = await req.json()
+        const  {productId,Userid,price,quantity} = await req.json()
         console.log(productId,Userid,price)
         await DBonnection()
-        const  oderss = await Order.create({
+        const formatedAryy = productId.map((id:string)=>({
+            product:id,
+            quantity: quantity || 1
+        }))
+           await Order.create({
             UserId:Userid.toString(),
-            productId:productId,
+            productId:formatedAryy,
             totalAmount:price
         })
-        console.log(oderss)
         return NextResponse.json({
             success:true,
             message:"Order BookConFrom"

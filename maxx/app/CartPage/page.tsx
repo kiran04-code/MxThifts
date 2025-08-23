@@ -18,7 +18,6 @@ import { MdDeleteForever } from "react-icons/md";
 
 const Page = () => {
     const { CartIteam, addToCart, RemoveToCart, getTotalAmmoutCart, user, dummyuCloth } = useAuth()!
-    console.log(Object.keys(CartIteam))
     const [loader, setLoder] = useState<boolean>(false)
     const router = useRouter()
     const [checkout, setchekout] = useState("")
@@ -28,7 +27,6 @@ const Page = () => {
         const tempArry = Object.keys(CartIteam)
             .map((key) => dummyuCloth.find((data) => data._id === key))
             .filter((p): p is IProduct => p !== undefined);
-
         setCartAyy(tempArry);
     };
     useEffect(() => {
@@ -37,7 +35,7 @@ const Page = () => {
     const BookOrder = async (price:number) => {
        try {
          setLoder(true)
-        const { data } = await axios.post('/api/bookOrder', { Userid:user?._id, productId,price })
+        const { data } = await axios.post('/api/bookOrder', { Userid:user?._id, productId:productId,price })
         if(data.success){
             router.push("/Profile")
             setLoder(false)
@@ -52,21 +50,6 @@ const Page = () => {
     useEffect(() => {
         setProductId(Object.keys(CartIteam))
     }, [])
-    // const hnadleonchnge = (e: ChangeEvent<HTMLInputElement>) => {
-    //     e.preventDefault()
-    //     const value = e.target.value;
-    //     setCoupeCode(value);
-
-    //     if (value === "max14") {
-    //         setCoupeCodetrue(true)
-    //         toast.success("Coupon applied ✅")
-    //         setTotalAmout(getTotalAmmoutCart() - getTotalAmmoutCart() * 10 / 100)
-    //     } else {
-    //         seterrorcopen("in valid Coupon")
-    //         setCoupeCodetrue(false)
-
-    //     }
-    // }
     return (
         <div className="min-h-screen flex flex-col">
             <div className='hidden md:flex'>
@@ -160,36 +143,11 @@ const Page = () => {
                         <select className='border rounded-lg overflow-hidden p-2' onChange={(e) => setchekout(e.target.value)} >
                             <option>--selecte Payment--</option>
                             <option value={"Online Mode"}>Online Mode</option>
-                            <option value={"offline Mode"}>offline Mode</option>
+                            <option value={"COD Mode"}>COD Mode</option>
                         </select>
                         <div className="flex items-center border rounded-lg overflow-hidden mt-4 w-full max-w-md">
-                            {/* {coupeCodetrue ? null : (
-                                <div className="flex flex-col w-full">
-                                    <div className="flex w-full">
-                                        <input
-                                            type="text"
-                                            onChange={hnadleonchnge}
-                                            value={coupeCode}
-                                            placeholder="Add promo code"
-                                            className="flex-1 px-3 py-2 text-sm outline-none border-r"
-                                        />
-                                        <button className="bg-black text-white px-4 py-2 text-sm rounded-r-lg hover:bg-gray-800">
-                                            Apply coupon code
-                                        </button>
-                                    </div>
-
-                                </div>
-
-                            )} */}
-
                         </div>
-                        {/* {
-                            coupeCodetrue ? null : <div> {
-                                errorcopen ? <p className="text-red-500 text-xs mt-1 px-2">{errorcopen}</p> : null
-                            }</div>
-                        } */}
-
-                        {/* <div className='flex justify-center items-center mt-2 bg-gray-200 p-2 rounded-xl'>  <p>use<span className=' px-2 py-1 underline'>max14 </span>coupon code for upto 10% discount</p></div> */}
+                       
                         {
                             checkout === "Online Mode" ? <button  className="w-full bg-black text-white py-3 rounded-lg mt-4 hover:bg-gray-800">
                                 Checkout

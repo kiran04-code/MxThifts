@@ -6,24 +6,19 @@ import axios from "axios"
 import toast from "react-hot-toast"
 import Footer from "@/components/Footer"
 import ReusedCompoennts from "@/components/Navbars/ReusedCompoennts"
-import { useState } from "react"
-export const EditFromOfAdsress= ()=>{
-  <div className="absolute z-50 bg-[#00000096] h-screen w-full">
+import { useEffect, useState } from "react"
+import { IOrder } from "@/model/order"
+import Image from "next/image"
 
-  </div>
-}
 function DataProfile() {
     const [openedit,setedit] = useState<boolean>(false)
+    const [orderArry,setOrderArry] = useState<IOrder[]>([])
   const { data: session, status } = useSession()
   const routes = useRouter()
   const { user, setUser } = useAuth()!
-  const [adress, setAdress] = useState(false)
-  console.log(user?._id)
-
   if (!user) {
     routes.push("/login")
   }
-
   const handleLogout = async () => {
     const { data } = await axios.get("/api/logout")
     if (data.success) {
@@ -32,7 +27,17 @@ function DataProfile() {
       routes.push("/")
     }
   }
-
+const getUserProduct = async()=>{
+  try {
+    const  {data} = await axios.post("/api/getUserProduct",{id:user?._id})
+    setOrderArry(data.datas)
+  } catch (error) {
+    console.log(error)
+  }
+}
+useEffect(()=>{
+  getUserProduct()
+},[])
   return (
     <div>
       <ReusedCompoennts />
@@ -84,23 +89,28 @@ function DataProfile() {
           {/* Order History */}
           <div className="bg-white shadow-md rounded-xl p-6">
             <h2 className="text-xl font-semibold text-gray-700 mb-4">Order History</h2>
-            <div className="space-y-3">
+            {
+              orderArry.map((item,index)=>(
+                <div   key={index} className="space-y-3">
               <div className="border-b pb-2">
-                <p className="font-medium">Order #1001</p>
-                <p>Date: 10 Aug 2025</p>
-                <p>Status: <span className="text-green-600 font-semibold">Delivered</span></p>
+                <p className="font-medium">Order #{index+1}</p>
+                <p>Date:{item.createdAt}</p>
+                {
+                  item.productId.map((i,index)=>(
+                    <div key={index} className="flex flex-col sm:flex-row items-center sm:items-start gap-4 border-b pb-4">
+                  <Image src={i.product.images[0].image} alt="" height={250} width={250} className="w-24 h-24 object-cover rounded-md"/>
+                </div>
+                  ))
+                }
+                <p>Status: <span className="text-green-600 font-semibold">{item.Status}</span></p>
+                <p>Payment Mode: <span className="text-green-600 font-semibold">{item.paymentMethod}</span></p>
+
               </div>
-              <div className="border-b pb-2">
-                <p className="font-medium">Order #1002</p>
-                <p>Date: 15 Aug 2025</p>
-                <p>Status: <span className="text-yellow-600 font-semibold">In Progress</span></p>
-              </div>
-              <div>
-                <p className="font-medium">Order #1003</p>
-                <p>Date: 20 Aug 2025</p>
-                <p>Status: <span className="text-red-600 font-semibold">Cancelled</span></p>
-              </div>
+              
+          
             </div>
+              ))
+            }
           </div>
 
         </div>
