@@ -63,7 +63,7 @@ const MobileNavbar = () => {
              {
               user? null : <Link href="/login" onClick={() => setOpen(false)} className="flex gap-3 items-center"  ><IoMdLogIn/>Login</Link>
              }
-              <Link href="/blog" onClick={() => setOpen(false)} className="flex gap-3 items-center" ><FaBlogger/>Blog</Link>
+              <Link href="/about" onClick={() => setOpen(false)} className="flex gap-3 items-center" ><FaBlogger/>About</Link>
              {
               user ? <Link href="/CartPage" onClick={() => setOpen(false)} className="flex gap-3 items-center" ><CiShoppingCart/>Cart <p className="bg-black text-white rounded-full px-2">{Object.values(CartIteam)}</p></Link>:null
              }

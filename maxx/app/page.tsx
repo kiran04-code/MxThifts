@@ -20,17 +20,18 @@ import Feed01 from "@/components/FeeDBackSection/feed01";
 import DressStype from "@/components/sellSection/DressStype";
 import Carts from "@/components/sellSection/Carts";
 import SearchEngine from "@/components/SearchEngine";
+import BetaBanner from "@/components/Banner";
 export default function Home() {
   return (
     <div className="flex-col  ">
-
+     <BetaBanner/>
       <div className="md:flex md:justify-between flex justify-between md:px-20 md:py-5 px-5 py-2 ">
         <div>
           <Nvbar2 />
         </div>
        
         <div className="md:flex hidden md:justify-center md:items-center gap-5">
-          <SearchEngine/>
+          
           <NavigationMenuDemos/>
       </div>
         <div className="md:hidden flex p-1">
@@ -44,6 +45,7 @@ export default function Home() {
         <AnimationSider />
       </div>
       <Carts/>
+      <div className="flex justify-center items-center"><Link href={"/allProduct"}> <button className='p-2 cursor-pointer bg-gradient-to-l from-black to-white  text-white '>Discover More </button></Link></div>
      <div className="mt-20">
        <Sell />
       <DressStype />

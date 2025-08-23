@@ -92,7 +92,7 @@ export function NavigationMenuDemos() {
         </NavigationMenuItem>
        
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-white">List</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="text-white">About</NavigationMenuTrigger>
          {
           user?  <Link href={"/Profile"} className="text-[#ffffff] ml-2 hover:bg-white hover:text-black p-2 rounded-[10px]  transition">Profile</Link>:null
          }
@@ -101,10 +101,10 @@ export function NavigationMenuDemos() {
               <li>
              
                 <NavigationMenuLink asChild>
-                  <Link href="#">
+                  <Link href="/about">
                     <div className="font-medium">Blog</div>
                     <div className="text-muted-foreground">
-                      Read our latest blog posts.
+                      Read our About us!.
                     </div>
                   </Link>
                 </NavigationMenuLink>

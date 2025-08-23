@@ -1,8 +1,10 @@
 import React from 'react'
 import Image from 'next/image';
+import Link from 'next/link';
 const Nvbar2 = () => {
   return (
-    <div className="md:flex flex  p-3 justify-center gap-2 px-3 items-center py-2 md:items-center md:gap-3 md:px-4 md:py-4 md:w-full bg-black shadow-md rounded-xl mt-2">
+    <div className="md:flex flex  p-2 justify-center gap-2 px-2 items-center py-1 md:items-center md:gap-3 md:px-4 md:py-4 md:w-full bg-black shadow-md rounded-xl mt-2">
+      <Link href={"/"} className='flex justify-center items-center gap-3' >
       <Image
         width={500}
         height={300}
@@ -13,6 +15,7 @@ const Nvbar2 = () => {
       <h1 className="text-lg sm:text-xl font-semibold text-gray-100">
         Maxx Thrift's
       </h1>
+      </Link>
     </div>
   );
 };

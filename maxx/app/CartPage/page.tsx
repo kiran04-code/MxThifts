@@ -31,21 +31,22 @@ const Page = () => {
     };
     useEffect(() => {
         getCart()
+        console.log(Object.values(CartIteam))
     }, [CartIteam])
-    const BookOrder = async (price:number) => {
-       try {
-         setLoder(true)
-        const { data } = await axios.post('/api/bookOrder', { Userid:user?._id, productId:productId,price })
-        if(data.success){
-            router.push("/Profile")
-            setLoder(false)
-        }else{
+    const BookOrder = async (price: number) => {
+        try {
+            setLoder(true)
+            const { data } = await axios.post('/api/bookOrder', { Userid: user?._id, productId: productId, price })
+            if (data.success) {
+                router.push("/Profile")
+                setLoder(false)
+            } else {
+                setLoder(false)
+            }
+        } catch (error) {
+            console.log(error)
             setLoder(false)
         }
-       } catch (error) {
-        console.log(error)
-        setLoder(false)
-       }
     }
     useEffect(() => {
         setProductId(Object.keys(CartIteam))
@@ -147,11 +148,11 @@ const Page = () => {
                         </select>
                         <div className="flex items-center border rounded-lg overflow-hidden mt-4 w-full max-w-md">
                         </div>
-                       
+
                         {
-                            checkout === "Online Mode" ? <button  className="w-full bg-black text-white py-3 rounded-lg mt-4 hover:bg-gray-800">
+                            checkout === "Online Mode" ? <button className="w-full bg-black text-white py-3 rounded-lg mt-4 hover:bg-gray-800">
                                 Checkout
-                            </button> : <button onClick={() =>{ BookOrder(getTotalAmmoutCart())}} className="w-full bg-black text-white py-3 rounded-lg mt-4 hover:bg-gray-800">
+                            </button> : <button onClick={() => { BookOrder(getTotalAmmoutCart()) }} className="w-full bg-black text-white py-3 rounded-lg mt-4 hover:bg-gray-800">
                                 {
                                     loader ? <SmallLoder /> : "Place Order"
                                 }

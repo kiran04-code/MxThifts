@@ -44,7 +44,6 @@ useEffect(()=>{
       <div className="p-5 ">
         <div className="w-full min-h-screen p-6 md:p-22 flex flex-col rounded-xl gap-8 bg-gray-50  border-2 border-black ">
 
-          {/* Account Header */}
           <div className="flex justify-between items-center">
             <h1 className="md:text-4xl text-2xl font-bold text-gray-800">My Account</h1>
             <button
@@ -55,7 +54,6 @@ useEffect(()=>{
             </button>
           </div>
 
-          {/* User Info Section */}
           <div className="bg-white shadow-md rounded-xl p-6">
             <h2 className="text-xl font-semibold text-gray-700 mb-4">Profile Information</h2>
             <p><span className="font-medium">Name:</span>{user?.name}</p>
@@ -63,7 +61,6 @@ useEffect(()=>{
             <p><span className="font-medium">Phone:</span>{user?.number}</p>
           </div>
 
-          {/* Address Section */}
           <div className="bg-white shadow-md rounded-xl p-6">
             {
               user?.address ? <div>
@@ -86,32 +83,86 @@ useEffect(()=>{
             }
           </div>
 
-          {/* Order History */}
-          <div className="bg-white shadow-md rounded-xl p-6">
-            <h2 className="text-xl font-semibold text-gray-700 mb-4">Order History</h2>
-            {
-              orderArry.map((item,index)=>(
-                <div   key={index} className="space-y-3">
-              <div className="border-b pb-2">
-                <p className="font-medium">Order #{index+1}</p>
-                <p>Date:{item.createdAt}</p>
-                {
-                  item.productId.map((i,index)=>(
-                    <div key={index} className="flex flex-col sm:flex-row items-center sm:items-start gap-4 border-b pb-4">
-                  <Image src={i.product.images[0].image} alt="" height={250} width={250} className="w-24 h-24 object-cover rounded-md"/>
-                </div>
-                  ))
-                }
-                <p>Status: <span className="text-green-600 font-semibold">{item.Status}</span></p>
-                <p>Payment Mode: <span className="text-green-600 font-semibold">{item.paymentMethod}</span></p>
+          <div className="bg-white shadow-lg rounded-2xl p-6">
+  <h2 className="text-2xl font-bold text-gray-800 mb-6 border-b pb-3">
+     Order History
+  </h2>
 
-              </div>
-              
-          
-            </div>
-              ))
-            }
+  {orderArry.length === 0 ? (
+    <p className="text-gray-500 text-center">No orders found</p>
+  ) : (
+    orderArry.map((item, index) => (
+      <div
+        key={index}
+        className="mb-6 border border-gray-200 rounded-xl p-4 hover:shadow-md transition-all"
+      >
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b pb-3 mb-4">
+          <div>
+            <p className="text-lg font-semibold text-gray-700">
+              Order #{index + 1}
+            </p>
+            <p className="text-sm text-gray-500">
+              Date: {new Date(item.createdAt).toLocaleDateString()}
+            </p>
           </div>
+          <span
+            className={`px-3 py-1 text-sm font-medium rounded-full ${
+              item.Status === "Delivered"
+                ? "bg-green-100 text-green-700"
+                : item.Status === "In Progess"
+                ? "bg-yellow-100 text-yellow-700"
+                : "bg-red-100 text-red-700"
+            }`}
+          >
+            {item.Status}
+          </span>
+        </div>
+
+        {/* Product List */}
+        <div className="space-y-4">
+          {item.productId.map((i, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col sm:flex-row items-center sm:items-start gap-4 border-b pb-4 last:border-b-0"
+            >
+              <Image
+                src={i.product.images[0].image}
+                alt={i.product.name || "Product"}
+                height={250}
+                width={250}
+                className="w-24 h-24 object-cover rounded-lg shadow-sm"
+              />
+
+              <div className="flex-1 text-center sm:text-left">
+                <p className="font-medium text-gray-800">{i.product.name}</p>
+                <p className="text-sm text-gray-500">
+                  Quantity: {i.quantity}
+                </p>
+                <p className="text-sm font-semibold text-gray-700">
+                  ₹{i.product.offerPrice}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Footer */}
+        <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-gray-600">
+            Payment Mode:{" "}
+            <span className="font-semibold text-gray-800">
+              {item.paymentMethod}
+            </span>
+          </p>
+          <p className="text-gray-800 font-bold">
+            Total: ₹{item.totalAmount}
+          </p>
+        </div>
+      </div>
+    ))
+  )}
+</div>
+
 
         </div>
       </div>

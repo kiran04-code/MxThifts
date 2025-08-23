@@ -1,4 +1,5 @@
 import { div } from 'motion/react-client'
+import Link from 'next/link'
 import React from 'react'
 
 const HeroSectionForVideo = () => {
@@ -12,10 +13,13 @@ const HeroSectionForVideo = () => {
                     </span>{' '}
                     Vibes!
                 </h1>
-                <span className='text-base sm:text-lg md:text-2xl font-medium md:font-bold'>
+                <div>
+                    <span className='text-base sm:text-lg md:text-2xl font-medium md:font-bold'>
                     Fashion with a conscience. <br className='hidden md:block' />
                     Wear stories, not trends.
                 </span>
+               <Link href={"/allProduct"}> <button className='p-3 cursor-pointer  text-white bg-black '>Stop Now </button></Link>
+                </div>
             </div>
 
             <div className='md:retaive  md:justify-end  md:items-center md:flex flex-col flex  px-3  md:px-1'>

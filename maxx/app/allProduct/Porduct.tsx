@@ -10,7 +10,7 @@ import { useAuth } from '@/context/UserAuth'
 const Porduct = () => {
     const router = useRouter()
     const FilterDaata = clothesDummy.filter((data) => data.category === "text")
-    const { user } = useAuth()!
+    const { user,dummyuCloth } = useAuth()!
     console.log(user)
     return (
         <div>
@@ -26,11 +26,11 @@ const Porduct = () => {
                 <div className='w-20 h-1.5 bg-gradient-to-r from-black to-gray-400  mt-3'></div>
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-10 py-10'>
-                {clothesDummy.map((item, index) => (
+                {dummyuCloth.map((item, index) => (
                     <motion.div
                         whileHover={{ y: -8 }}
                         key={index}
-                        onClick={() => router.push(`/${item.id}`)}
+                        onClick={() => router.push(`/${item._id}`)}
                         className="overflow-hidden w-60 hover:shadow-lg transform transition duration-300"
                     >
                         <div className="overflow-hidden">
