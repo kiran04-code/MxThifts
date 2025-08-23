@@ -16,7 +16,7 @@ const Footer2 = () => {
                     className="md:w-50 md:h-50 h-15 w-15 object-contain md:flex  hidden"
                 />
                 <h1 className="text-5xl lg:text-[170px] font-semibold text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-black">
-                    Maxx Thrift's
+                    Maxx Thrift&apos;s
                 </h1>
             </div>
             <div className='  md:w-full md:justify-end md:flex mb-5  p-2 hidden md:px-20  '>

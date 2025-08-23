@@ -11,7 +11,7 @@ const Footer = () => {
                 <div className="md:max-w-96">
                   <div className='flex  items-center  gap-2'>
                       <Image alt=""  width={50} height={50} src="/IMG_4331.PNG" />
-                      <h1 className='font-bold text-3xl'>Maxx Thrift's</h1>
+                      <h1 className='font-bold text-3xl'>Maxx Thrift&apos;s</h1>
                         <Link
                   href="https://www.instagram.com/maxx.thrifts_/"
                   target="_blank"
@@ -22,7 +22,7 @@ const Footer = () => {
                 </Link>
                   </div>
                     <p className="mt-6 text-sm">
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     </p>
                     
                 </div>

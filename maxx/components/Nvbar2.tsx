@@ -13,7 +13,7 @@ const Nvbar2 = () => {
         className="w-10 h-10 object-contain"
       />
       <h1 className="text-lg sm:text-xl font-semibold text-gray-100">
-        Maxx Thrift's
+        Maxx Thrift&apos;s
       </h1>
       </Link>
     </div>

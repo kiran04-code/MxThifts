@@ -79,7 +79,7 @@ export function NavigationMenuDemos() {
                        <div>
                              <div className="flex justify-center items-center gap-2">
                               <Image src={"/black_logo.png"}  alt=""  width={30} height={30}/>
-                              <p>Maxx Thift's</p>
+                              <p>Maxx Thift&apos;s</p>
                              </div>
                        </div>
                     </div>

@@ -49,7 +49,7 @@ const MobileNavbar = () => {
             <div className="flex justify-between">
             <div className="flex gap-2 justify-center items-center">
                <Image height={25}  width={25} src="/black_logo.png" alt="" className="w-8 h-8 "/>
-               <p className="text-xl font-bold"> Maxx Thrift's</p>
+               <p className="text-xl font-bold"> Maxx Thrift&apos;s</p>
             </div>
               <RxCross1
                 onClick={() => setOpen(false)}

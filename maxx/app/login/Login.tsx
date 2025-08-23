@@ -64,7 +64,7 @@ const Login = () => {
 
         <div className="flex gap-2 items-center mb-6">
           <img src="black_logo.png" alt="logo" className="w-12 h-12" />
-          <p className="text-2xl font-semibold">MaxxThift's</p>
+          <p className="text-2xl font-semibold">MaxxThift&apos;s</p>
         </div>
 
 
