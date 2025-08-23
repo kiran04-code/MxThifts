@@ -27,7 +27,7 @@ const Page = () => {
     const fromData = new FormData()
     fromData.append("productDetails", JSON.stringify(productDetails))
     for (let i = 0; i < files.length; i++) {
-        fromData.append("image", files[i])
+        fromData.append("image",  files[i] as File)
     }
     const hnadlesubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
