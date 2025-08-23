@@ -104,9 +104,9 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     for (const item in CartIteam) {
       const products = dummyuCloth.find((data) => data._id === item)
 
-      if (CartIteam[item] > 0) {
-        totalAmmot += products.offerPrice * CartIteam[item]
-      }
+    if (products && CartIteam[item] > 0) {
+  totalAmmot += products.offerPrice * CartIteam[item];
+}
 
     }
     return Math.floor(totalAmmot * 100) / 100
