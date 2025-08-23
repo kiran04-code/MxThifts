@@ -1,5 +1,6 @@
 "use client"
 import axios from 'axios';
+import Image from 'next/image';
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -78,7 +79,7 @@ const Page = () => {
                                         setFiles(updatedFiles);
                                     }}
                                 />
-                                <img className="max-w-24 cursor-pointer " src={files[index] ? URL.createObjectURL(files[index]) : "https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/e-commerce/uploadArea.png"} alt="uploadArea" width={100} height={100} />
+                                <Image   className="max-w-24 cursor-pointer " src={files[index] ? URL.createObjectURL(files[index]) : "https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/e-commerce/uploadArea.png"} alt="uploadArea" width={100} height={100} />
                             </label>
                         ))}
                     </div>
