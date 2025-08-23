@@ -4,7 +4,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
-const page = () => {
+const Page = () => {
   const [orderArry, setOrderArry] = useState<IOrder[]>([]);
 
   const getAllorders = async () => {
@@ -75,4 +75,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

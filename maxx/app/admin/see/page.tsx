@@ -3,7 +3,7 @@ import { useAuth } from '@/context/UserAuth'
 import axios from 'axios'
 import React, { useState } from 'react'
 
-const page = () => {
+const Page = () => {
     const {dummyuCloth} = useAuth()!
     const [id,setid] = useState<string>('')
     const [instock,setinstock] = useState<boolean>(true)
@@ -91,4 +91,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

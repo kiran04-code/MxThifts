@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast';
 
-const page = () => {
+const Page = () => {
     const [files, setFiles] = useState<(File | null)[]>([]);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
@@ -125,4 +125,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
