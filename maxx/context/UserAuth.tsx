@@ -31,7 +31,7 @@ interface AuthContextType {
   getTotalAmmoutCart: () => number
 
 }
-const list = "dfghjkl;hkjcbsdwcjhdwebfluerhfuwerf"
+const aikey = "dfghjkl;hkjcbsdwcjhdwebfluerhfuwerf"
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<CurrentUser | null>(null);
